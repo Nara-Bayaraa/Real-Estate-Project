@@ -3,12 +3,14 @@ The Real Estate Project is a testing suite built to validate the functionality o
 This project is the first in my tester portfolio, highlighting my skills in writing modular tests, handling HTTP requests, and ensuring quality across different layers of a web application.
 
 #Features
+
 Cypress API Testing: End-to-end and integration tests for user flows like property browsing and form submissions, leveraging Cypress’s built-in API capabilities.
 Axios API Testing: Standalone API tests to validate backend endpoints, focusing on data accuracy and response handling.
 Frontend Validation: Browser-based tests to ensure UI elements and interactions work as expected.
 Backend Validation: Independent API checks to confirm data consistency and server reliability.
 
 #Tech Stack
+
 Cypress: For browser-based end-to-end and UI testing.
 Axios: For standalone HTTP requests and API testing.
 JavaScript: Core language for scripting tests and logic.
@@ -16,23 +18,35 @@ Node.js: Runtime environment for executing the tests.
 Design Pattern: Page Object Model.
 
 # Installation
+
 ```bash
-git clone https://github.com/your-username/real-estate-project.git
-cd real-estate-project
+git clone https://github.com/Nara-Bayaraa/real-estate-project.git
+
+// Install project dependencies
 npm install
+cd real-estate-project
+
+// run Cypress  
+npx cypress open
+
 ```
 
 
 # Project Structure
 ```
-real-estate-project/
-├── cypress/
-│   ├── e2e/              # End-to-end test files
-│   ├── fixtures/         # Mock data for tests
-│   ├── support/          # Custom commands and utilities
-│   └── screenshots/      # Auto-generated screenshots for failed tests
-├── tests/
-│   └── axios-api-tests.js # Standalone Axios API test scripts
-├── package.json          # Project dependencies and scripts
-└── README.md             # Project documentation
+
+/real-estate-project/
+  ├── cypress/
+  │   ├── downloads/ - here you can find screenshots of failures when running in headless mode
+  │   ├── e2e/  - where all of the tests are stored
+  │   ├── fixures/  - is used to store data (users, listing etc)
+  │   ├── pageObject  - for all of the locators and methods
+  │   ├── support  - here you can find custom command for cypress
+  ├── node_modules/
+  ├── .gitignore
+  ├── cypress.config.js
+  ├── package-lock.json
+  ├── package.json
+  ├── README.md
+
 ```
