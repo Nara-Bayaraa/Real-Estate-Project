@@ -23,7 +23,8 @@ npm install
 ```
 
 
-#Project Structure
+# Project Structure
+```
 real-estate-project/
 ├── cypress/
 │   ├── e2e/              # End-to-end test files
@@ -34,4 +35,4 @@ real-estate-project/
 │   └── axios-api-tests.js # Standalone Axios API test scripts
 ├── package.json          # Project dependencies and scripts
 └── README.md             # Project documentation
-
+```
