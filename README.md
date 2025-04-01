@@ -4,18 +4,18 @@ This project is the first in my tester portfolio, highlighting my skills in writ
 
 # Features
 
-Cypress API Testing: End-to-end and integration tests for user flows like property browsing and form submissions, leveraging Cypress’s built-in API capabilities.
-Axios API Testing: Standalone API tests to validate backend endpoints, focusing on data accuracy and response handling.
-Frontend Validation: Browser-based tests to ensure UI elements and interactions work as expected.
-Backend Validation: Independent API checks to confirm data consistency and server reliability.
+- Cypress API Testing: End-to-end and integration tests for user flows like property browsing and form submissions, leveraging Cypress’s built-in API capabilities.
+- Axios API Testing: Standalone API tests to validate backend endpoints, focusing on data accuracy and response handling.
+- Frontend Validation: Browser-based tests to ensure UI elements and interactions work as expected.
+- Backend Validation: Independent API checks to confirm data consistency and server reliability.
 
 # Tech Stack
 
-Cypress: For browser-based end-to-end and UI testing.
-Axios: For standalone HTTP requests and API testing.
-JavaScript: Core language for scripting tests and logic.
-Node.js: Runtime environment for executing the tests.
-Design Pattern: Page Object Model.
+- Cypress: For browser-based end-to-end and UI testing.
+- Axios: For standalone HTTP requests and API testing.
+- JavaScript: Core language for scripting tests and logic.
+- Node.js: Runtime environment for executing the tests.
+- Design Pattern: Page Object Model.
 
 # Installation
 
