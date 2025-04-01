@@ -9,7 +9,7 @@ This project is the first in my tester portfolio, highlighting my skills in writ
 - Frontend Validation: Browser-based tests to ensure UI elements and interactions work as expected.
 - Backend Validation: Independent API checks to confirm data consistency and server reliability.
 
-# 🛠️Tech Stack
+# 🛠️ Tech Stack
 
 - Cypress: For browser-based end-to-end and UI testing.
 - Axios: For standalone HTTP requests and API testing.
@@ -17,7 +17,7 @@ This project is the first in my tester portfolio, highlighting my skills in writ
 - Node.js: Runtime environment for executing the tests.
 - Design Pattern: Page Object Model.
 
-# Installation
+# 🔧 Installation
 
 1. Clone the repository:
 ```bash
@@ -33,7 +33,7 @@ npm install
 npx cypress open
 ```
 
-# Project Structure
+# 🗂️ Project Structure
 ```
 
 /real-estate-project/
