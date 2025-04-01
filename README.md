@@ -15,13 +15,13 @@ JavaScript: Core language for scripting tests and logic.
 Node.js: Runtime environment for executing the tests.
 Design Pattern: Page Object Model.
 
-
-#### Rendered Output
 # Installation
 ```bash
 git clone https://github.com/your-username/real-estate-project.git
 cd real-estate-project
 npm install
+```
+
 
 #Project Structure
 real-estate-project/
