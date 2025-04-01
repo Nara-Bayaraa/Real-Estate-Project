@@ -19,18 +19,19 @@ Design Pattern: Page Object Model.
 
 # Installation
 
+1. Clone the repository:
 ```bash
 git clone https://github.com/Nara-Bayaraa/real-estate-project.git
-
-// Install project dependencies
-npm install
 cd real-estate-project
-
-// run Cypress  
-npx cypress open
-
 ```
-
+2. Install project dependencies: Ensure you have Node.js installed, then install the necessary libraries:
+```bash
+npm install
+```
+3. Run the tests: To execute all Cypress tests:
+```bash
+npx cypress open
+```
 
 # Project Structure
 ```
