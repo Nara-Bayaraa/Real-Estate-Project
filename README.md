@@ -16,6 +16,7 @@ This project is the first in my tester portfolio, highlighting my skills in writ
 - JavaScript: Core language for scripting tests and logic.
 - Node.js: Runtime environment for executing the tests.
 - Design Pattern: Page Object Model.
+- Test Report: Mochawesome.
 
 # 🔧 Installation
 
