@@ -15,21 +15,60 @@ This project is the first in my tester portfolio, highlighting my skills in writ
 - Node.js: Runtime environment for executing the tests.
 - Design Pattern: Page Object Model.
 - Test Report: Mochawesome.
+## Setup Instructions
 
-# 🔧 Installation
+### 1. Clone the repository
 
-1. Clone the repository:
 ```bash
 git clone https://github.com/Nara-Bayaraa/real-estate-project.git
 cd real-estate-project
 ```
-2. Install project dependencies: Ensure you have Node.js installed, then install the necessary libraries:
+
+### 2. Install dependencies
+
 ```bash
 npm install
 ```
-3. Run the tests: To execute all Cypress tests:
+
+### 3. Run Tests
+
+Run all tests:
+
 ```bash
-npx cypress open
+npm run cy:run
+```
+
+Run tests in UI:
+
+```bash
+npm run cy:open
+```
+
+Run specific suites:
+
+```bash
+npm run test:LoginFolder
+npm run test:RegisterFolder
+```
+
+Run in parallel:
+
+```bash
+npm run cy:parallel:register
+npm run cy:parallel:login
+```
+
+### 4. Generate Test Report
+
+```bash
+npm run merge:reports
+npm run generate:report
+```
+
+Serve the HTML report:
+
+```bash
+npx serve cypress/reports/html
 ```
 
 # 📂 Project Structure
