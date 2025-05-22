@@ -12,6 +12,6 @@ cypress/reports/*
 cypress/screenshots/*
 cypress/videos/*
 cypress/downloads/
-cypress/parallel-weights.json
+parallel-weights.json
 runner-results/
 multi-reporter-config.json 
