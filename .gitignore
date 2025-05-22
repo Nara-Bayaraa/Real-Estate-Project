@@ -7,10 +7,11 @@ node_modules
 # Ignore API keys, secrets, passwords, etc.
 .env
 
-cypress/runner-results/*
+
 cypress/reports/*
 cypress/screenshots/*
 cypress/videos/*
-cypress/downloads/*
+cypress/downloads/
 cypress/parallel-weights.json
-cypress/multi-reporter-config.json
+runner-results/
+multi-reporter-config.json 
