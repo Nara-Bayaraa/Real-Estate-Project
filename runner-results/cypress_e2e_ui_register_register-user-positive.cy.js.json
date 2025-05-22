@@ -1,0 +1,10 @@
+{
+  "suites": 1,
+  "tests": 3,
+  "passes": 3,
+  "pending": 0,
+  "failures": 0,
+  "start": "2025-05-22T18:35:20.083Z",
+  "duration": 4984,
+  "file": "cypress/e2e/ui/register/register-user-positive.cy.js"
+}

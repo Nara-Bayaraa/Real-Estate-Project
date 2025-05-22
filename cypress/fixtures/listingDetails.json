@@ -1,0 +1,31 @@
+{
+    "homePageListingDetails": {
+      "searchResult": "Brand new single-family residence",
+      "selectedBedrooms": "3",
+      "propertyPrice": "$ 3,330,000",
+      "address": "310 W Elgin rd",
+      "askingPrice": "Asking Price: $ 3,330,000",
+      "squareFeet": "Square Feet: 924",
+      "lotSize": "Lot Size: 500",
+      "garage": "Garage: 2",
+      "bathrooms": "Bathrooms: 2",
+      "bedrooms": "Bedrooms: 5",
+      "realtor": "Realtor: Narachan B",
+      "description": "Sunny and spacious 5 bed, 2 bath home in the very desirable Galewood."
+    },
+    "listingPageListingDetails": {
+      "searchPlaceholder": "wood grain",
+      "searchResult": "Single-family home",
+      "selectedBedrooms": "3",
+      "propertyPrice": "$ 7,100,000",
+      "address": "311 W Niles rd",
+      "askingPrice": "Asking Price: $ 7,100,000",
+      "squareFeet": "Square Feet: 924",
+      "lotSize": "Lot Size: 9200",
+      "garage": "Garage: 1",
+      "bathrooms": "Bathrooms: 2",
+      "bedrooms": "Bedrooms: 3",
+      "realtor": "Realtor: Narachan B",
+      "description": "Great curb appeal with dark board and batten facade highlighted by stone and wood grain accents and modern front entry door."
+    }
+  }

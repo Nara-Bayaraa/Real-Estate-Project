@@ -1,0 +1,11 @@
+
+{
+  "firstNameRequired": "First name required",
+  "lastNameRequired": "Last name required",
+  "emailRequired": "Email is required",
+  "passwordRequired": "Password is required",
+  "registrationInputError": "Input data validation failed",
+  "invalidEmail": "Email must be a valid email address",
+  
+  "emailMustValid": "Email must be a valid email address"
+  }

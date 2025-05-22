@@ -1,0 +1,10 @@
+{
+  "suites": 1,
+  "tests": 2,
+  "passes": 2,
+  "pending": 0,
+  "failures": 0,
+  "start": "2025-05-22T18:35:14.832Z",
+  "duration": 3163,
+  "file": "cypress/e2e/ui/register/register-realtor-positive.cy.js"
+}
