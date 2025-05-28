@@ -53,8 +53,57 @@ npm install
 ```bash
 npx cypress open
 ```
+>>>>>>> d37d765798fde9cdae22b19cf8dbd680a90a02f4
 
-# 📂 Project Structure
+---
+
+## 🛠️ Tech Stack
+
+* **Cypress** (UI and API testing)
+* **JavaScript** (CommonJS)
+* **Node.js**
+* **Page Object Model (POM)**
+* **Mochawesome** (reporting)
+* **GitHub Actions** (CI/CD)
+
+---
+
+## 🔧 Installation
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/Nara-Bayaraa/real-estate-project.git
+   cd real-estate-project
+   ```
+2. **Install dependencies:**
+   Ensure you have Node.js installed, then run:
+
+   ```bash
+   npm install
+   ```
+3. **Run all tests in Cypress UI:**
+
+   ```bash
+   npm run cy:open
+   ```
+4. **Run all tests in headless mode (terminal):**
+
+   ```bash
+   npm run cy:run
+   ```
+5. **Run all tests in parallel (fastest, uses all CPU cores):**
+
+   ```bash
+   npm run cy:parallel
+   ```
+
+   > Wildcards in scripts mean any new `.cy.js` test files are picked up automatically!
+
+---
+
+## 📂 Project Structure
+
 ```
 real-estate-project/
   ├── cypress/
