@@ -1,5 +1,3 @@
-Here’s your **refactored README.md** to match your **new Cypress folder structure**, tools, and best practices—using what’s in your latest screenshots. This is clear, professional, and portfolio-ready.
-
 ---
 
 # 🏠 Real Estate Project – Cypress Automated Testing Suite
