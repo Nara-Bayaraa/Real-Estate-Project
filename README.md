@@ -53,7 +53,6 @@ npm install
 ```bash
 npx cypress open
 ```
->>>>>>> d37d765798fde9cdae22b19cf8dbd680a90a02f4
 
 ---
 

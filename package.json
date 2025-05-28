@@ -1,9 +1,8 @@
 {
   "name": "real-estate-project",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "cypress.config.js",
   "scripts": {
-  
     "cy:open": "cypress open",
     "cy:run": "cypress run --browser chrome",
     "cy:parallel": "cypress-parallel -s cy:run -t 5 -d 'cypress/e2e/**/*.cy.js' -e '**/*.DS_Store'",
