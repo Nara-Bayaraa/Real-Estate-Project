@@ -33,8 +33,11 @@ jobs:
       - name: Run Cypress E2E tests in parallel
         run: npm run cy:parallel
 
-      - name: Upload HTML Report
-        uses: actions/upload-artifact@v4
-        with:
-          name: mochawesome-report
-          path: cypress/reports/html
+      - name: Run Parallel Cypress Tests
+        run: npm run cy:parallel
+
+      - name: Merge Mochawesome Reports
+        run: npm run merge:reports
+
+      - name: Generate HTML Report
+        run: npm run generate:report
