@@ -2,10 +2,10 @@
   "name": "real-estate-project",
   "version": "1.0.0",
   "main": "cypress.config.js",
-  "scripts": {
+"scripts": {
   "cy:open": "cypress open",
   "cy:run": "cypress run --browser chrome --reporter cypress-multi-reporters --reporter-options configFile=cypress.config.js",
-  "cy:parallel": "cypress-parallel -s \"cypress run --browser chrome --reporter cypress-multi-reporters --reporter-options configFile=cypress.config.js\" -t 5 -d 'cypress/e2e/**/*.cy.js' -e '**/*.DS_Store'",
+  "cy:parallel": "cypress-parallel -c \"cypress run --browser chrome --reporter cypress-multi-reporters --reporter-options configFile=cypress.config.js\" -t 5 -d 'cypress/e2e/**/*.cy.js' -e '**/*.DS_Store'",
   "clean:reports": "rm -rf cypress/reports",
   "pretest": "npm run clean:reports",
   "merge:reports": "mochawesome-merge cypress/reports/mochawesome/*.json > cypress/reports/mochawesome.json",
