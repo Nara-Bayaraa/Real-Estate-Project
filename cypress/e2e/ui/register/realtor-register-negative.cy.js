@@ -3,14 +3,14 @@ import {firstName,lastName, email, password,} from "../../../support/helpers/gen
 describe("Register Page: Realtor Negative Test Cases", () => {
   beforeEach(() => {
     cy.visit("auth/register");
-     cy.fixture("form-data.json").as("loginTestUsers");
+     cy.fixture("userCredentials.json").as("userCredential");
   });
 
   it("[REG-REALTOR-NEG-001] Should display error when attempting to register with an already registered email", function(){
     RegisterPage.fillRegistrationForm(
       firstName,
       lastName,
-      this.loginTestUsers.validLoginFormData.email,
+      this.userCredential.validLoginData.email,
       password
     );
     RegisterPage.assertInputErrorMessageIsDisplayed();

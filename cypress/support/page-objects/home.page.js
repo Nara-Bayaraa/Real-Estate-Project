@@ -1,7 +1,5 @@
 class HomePage {
-   get theme() {
-    return cy.get('[type="checkbox"]');
-  }
+ 
   get heroTitle() {
     return cy.get("h1");
   }
@@ -38,17 +36,6 @@ class HomePage {
   }
   get stateOptionsList() {
     return cy.get('li[role="option"]');
-  }
-  get minPriceSlider() {
-    return cy.get('[class="MuiSlider-valueLabel css-1sd01xo"]').first(); 
-    // first handle (min)
-  }
-  get maxPriceSlider() {
-    return cy.get('[class="MuiSlider-valueLabel css-1sd01xo"]').last(); 
-  }
-
-  toggleTheme(){
-    this.theme.click({ force: true });
   }
 
   verifyTitleIsVisible() {

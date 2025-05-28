@@ -7,7 +7,7 @@ describe("End-to-End: property listing creation , search created property , and 
   const image = "images/luxuryApartment.png";
   let createdListingId;
   beforeEach(() => {
-    cy.visit("/");
+    cy.visit("https://dev.delekhomes.com/");
     cy.errorHandler();
   });
   before(() => {

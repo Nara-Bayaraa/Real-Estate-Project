@@ -1,20 +1,4 @@
 {
-  "realtorLoginData": {
-   "username": "nipifof819@datingel.com",
-    "password": "DontTestMe"
-   },
-
-    "validLoginFormData": {
-    "firstName": "Sara",
-    "lastName": "Ba",
-    "email": "waped44366@gianes.com",
-    "password": "DontTestMe"
-  },
-    "invalidLoginFormData": {
-      "email": "wrongexample.com",
-      "password": "WrongPassword123"
-    } ,
-
   "inquiryFormData": {
     "property": "new window",
     "name": "John Doe",

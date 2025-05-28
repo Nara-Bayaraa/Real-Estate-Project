@@ -4,7 +4,7 @@ describe("Register Page: User Negative Test Cases", () => {
   beforeEach(() => {
     cy.visit("auth/register");
     cy.fixture("validation-messages.json").as("message");
-    cy.fixture("form-data.json").as("loginTestUsers");
+    cy.fixture("userCredentials.json").as("userCredential");
   });
 
   it("[REG-USER-NEG-001] should display error when First Name field is empty", function () {
@@ -52,7 +52,7 @@ describe("Register Page: User Negative Test Cases", () => {
     RegisterPage.fillRegistrationForm(
       firstName,
       lastName,
-      this.loginTestUsers.validLoginFormData.email,
+      this.userCredential.validLoginData.email,
       password
     );
     RegisterPage.assertInputErrorMessageIsDisplayed();

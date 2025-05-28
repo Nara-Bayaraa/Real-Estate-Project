@@ -1,4 +1,4 @@
-import Dashboard from "../../../support/page-objects/dashboard.page.js";
+import HeaderComponentPage from "../../../support/page-objects/header-component.page";
 describe("User Logout Functionality - Positive Test Case", () => {
   beforeEach(function () {
     cy.userLogin();
@@ -6,8 +6,8 @@ describe("User Logout Functionality - Positive Test Case", () => {
   });
 
   it("[LOGOUT-POS-001] should successfully logout and redirect the user to login page", () => {
-    Dashboard.clickUserIconMenuButton();
-    Dashboard.clickLogoutButton();
+   HeaderComponentPage.clickUserIconMenuButton();
+   HeaderComponentPage.clickLogoutButton();
     cy.url().should("include", "/auth/login");
   });
 });
