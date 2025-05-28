@@ -18,14 +18,17 @@ module.exports = defineConfig({
       runMode: 2,
       openMode: 0,
     },
-    reporter: "mochawesome",
+    reporter: "cypress-multi-reporters",
     reporterOptions: {
-      charts: true,
-      reportDir: "cypress/reports/mochawesome",
-      overwrite: false,
-      html: false,
-      json: true,
+      reporterEnabled: "mochawesome",
+      mochawesomeReporterOptions: {
+        reportDir: "cypress/reports/mochawesome",
+        overwrite: false,
+        html: false,
+        json: true,
+      },
     },
+
     setupNodeEvents(on, config) {},
   },
 });
