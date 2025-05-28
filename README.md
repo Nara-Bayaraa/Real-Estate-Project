@@ -1,3 +1,7 @@
+Here’s your **refactored README.md** to match your **new Cypress folder structure**, tools, and best practices—using what’s in your latest screenshots. This is clear, professional, and portfolio-ready.
+
+---
+
 # 🏠 Real Estate Project – Cypress Automated Testing Suite
 
 ## 🖥️ Project Description
@@ -24,36 +28,6 @@ All tests are modular, using the **Page Object Model (POM)** for maintainable an
   Rich HTML test reports generated with Mochawesome.
 * **GitHub Actions CI/CD:**
   Modern pipeline support with parallel execution and dependency caching.
-
----
-
-## 🛠️ Tech Stack
-
-* **Cypress** (UI and API testing)
-* **JavaScript** (CommonJS)
-* **Node.js**
-* **Page Object Model (POM)**
-* **Mochawesome** (reporting)
-* **GitHub Actions** (CI/CD)
-
----
-
-## 🔧 Installation
-
-1. Clone the repository:
-```bash
-git clone https://github.com/Nara-Bayaraa/real-estate-project.git
-cd real-estate-project
-```
-2. Install project dependencies: Ensure you have Node.js installed, then install the necessary libraries:
-```bash
-npm install
-```
-3. Run the tests: To execute all Cypress tests:
-```bash
-npx cypress open
-```
->>>>>>> d37d765798fde9cdae22b19cf8dbd680a90a02f4
 
 ---
 
@@ -98,8 +72,6 @@ npx cypress open
    npm run cy:parallel
    ```
 
-   > Wildcards in scripts mean any new `.cy.js` test files are picked up automatically!
-
 ---
 
 ## 📂 Project Structure
@@ -111,7 +83,7 @@ real-estate-project/
   │   ├── e2e/                         # All Cypress test specs
   │   │   ├── api/
   │   │   │   ├── listings/            # API tests for property listings (CRUD)
-  │   │   │   └── users/               # API tests for users 
+  │   │   │   └── users/               # API tests for users (if any)
   │   │   └── ui/
   │   │       ├── dashboard/           # Dashboard-related UI tests
   │   │       ├── featured-listings/   # Featured listings UI tests
@@ -194,8 +166,6 @@ real-estate-project/
 }
 ```
 
-> **Wildcards in npm scripts mean new test files are automatically picked up—no need to update scripts when you add more tests!**
-
 ---
 
 ## 🤖 Continuous Integration
@@ -230,6 +200,7 @@ jobs:
         run: npm ci
 
       - name: Run Cypress E2E tests in parallel
+        env:
         run: npm run cy:parallel
 ```
 
@@ -260,5 +231,3 @@ MIT License
 ---
 
 Happy testing! 🚀
-
----
