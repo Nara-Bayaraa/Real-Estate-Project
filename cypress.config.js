@@ -18,10 +18,10 @@ module.exports = defineConfig({
       runMode: 2,
       openMode: 0,
     },
-    reporter: "cypress-multi-reporters",
+    
     reporterOptions: {
       reporterEnabled: "mochawesome",
-      mochawesomeReporterOptions: {
+      reporterOptions: {
         reportDir: "cypress/reports/mochawesome",
         overwrite: false,
         html: false,

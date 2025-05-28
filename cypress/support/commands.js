@@ -1,5 +1,16 @@
 import HeaderComponentPage from "./page-objects/header-component.page";
+// Error handler
+Cypress.Commands.add("errorHandler", () => {
+  Cypress.on("uncaught:exception", (err, runnable) => {
+    return false;
+  });
+});
+//Toggle Theme
+Cypress.Commands.add("enableDarkTheme", () => {
+  HeaderComponentPage.toggleTheme();
+});
 
+//LOGIN 
 Cypress.Commands.add(
   "userLogin",
   (email = "waped44366@gianes.com", password = "DontTestMe") => {
@@ -16,7 +27,7 @@ Cypress.Commands.add(
   }
 );
 
-Cypress.Commands.add("realtorLogin",() => {
+Cypress.Commands.add("realtorLogin", () => {
   cy.api({
     method: "POST",
     url: "/api/users/login",
@@ -28,16 +39,6 @@ Cypress.Commands.add("realtorLogin",() => {
     window.localStorage.setItem("accessToken", response.body.accessToken);
     expect(response.status).to.eq(200);
   });
-});
-// Error handler
-Cypress.Commands.add("errorHandler", () => {
-  Cypress.on("uncaught:exception", (err, runnable) => {
-    return false;
-  });
-});
-//Toggle Theme
-Cypress.Commands.add("enableDarkTheme", () => {
-  HeaderComponentPage.toggleTheme();
 });
 
 //CREATE
@@ -110,4 +111,3 @@ Cypress.Commands.add("deleteListing", (listingId) => {
     },
   });
 });
-
