@@ -1,8 +1,6 @@
 import { faker } from "@faker-js/faker";
 
-// Generate a random first name
 const firstName = faker.person.firstName();
-// Generate a random last name
 const lastName = faker.person.lastName();
 const email = faker.internet.email();
 const password = faker.internet.password();

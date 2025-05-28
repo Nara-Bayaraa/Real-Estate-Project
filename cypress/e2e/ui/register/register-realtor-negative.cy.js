@@ -1,21 +1,16 @@
-import RegisterPage from "../../../support/pageObjects/register.page.js";
-import {
-  firstName,
-  lastName,
-  email,
-  password,
-} from "../../../support/helpers/generateUser.js";
-
-describe("Register Page - Positive Scenarios", () => {
+import RegisterPage from "../../../support/page-objects/register.page.js";
+import {firstName,lastName, email, password,} from "../../../support/helpers/generate-user.js";
+describe("Register Page: Realtor Negative Test Cases", () => {
   beforeEach(() => {
     cy.visit("auth/register");
-     cy.fixture("userCredentials.json").as("userCredentials");
+     cy.fixture("form-data.json").as("loginTestUsers");
   });
-  it("[REG-REALTOR-NEG-001] should realtor register with a unique (Not previously used) email ", function(){
+
+  it("[REG-REALTOR-NEG-001] Should display error when attempting to register with an already registered email", function(){
     RegisterPage.fillRegistrationForm(
       firstName,
       lastName,
-     this.userCredentials.valid.email,
+      this.loginTestUsers.validLoginFormData.email,
       password
     );
     RegisterPage.assertInputErrorMessageIsDisplayed();

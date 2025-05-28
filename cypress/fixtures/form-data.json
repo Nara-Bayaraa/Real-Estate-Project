@@ -1,0 +1,41 @@
+{
+  "realtorLoginData": {
+   "username": "nipifof819@datingel.com",
+    "password": "DontTestMe"
+   },
+
+    "validLoginFormData": {
+    "firstName": "Sara",
+    "lastName": "Ba",
+    "email": "waped44366@gianes.com",
+    "password": "DontTestMe"
+  },
+    "invalidLoginFormData": {
+      "email": "wrongexample.com",
+      "password": "WrongPassword123"
+    } ,
+
+  "inquiryFormData": {
+    "property": "new window",
+    "name": "John Doe",
+    "email": "john@example.com",
+    "phone": "1234567890",
+    "message": "I am interested!"
+  },
+
+   "listingPageSearchFormData": {
+    "searchPlaceholder": "wood grain",
+    "searchResult": "Single-family home",
+    "selectedBedrooms": "3",
+    "propertyPrice": "$ 7,100,000",
+    "address": "311 W Niles rd",
+    "askingPrice": "Asking Price: $ 7,100,000",
+    "squareFeet": "Square Feet: 924",
+    "lotSize": "Lot Size: 9200",
+    "garage": "Garage: 1",
+    "bathrooms": "Bathrooms: 2",
+    "bedrooms": "Bedrooms: 3",
+    "realtor": "Realtor: Narachan B",
+    "description": "Great curb appeal with dark board and batten facade highlighted by stone and wood grain accents and modern front entry door."
+  }
+}

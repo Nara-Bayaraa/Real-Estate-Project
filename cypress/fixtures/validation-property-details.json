@@ -1,0 +1,36 @@
+{
+  "expecteHomeSearchdResults": {
+    "byKeyword": "Mountain house",
+    "byBedroom": "2",
+    "byPrice": ["500000", "10000000"],
+    "byState": ["CA", "California"],
+    "byCity": "Hawthorne"
+  },
+  "expectedFeaturedCardDetails": {
+    "title": "Mountain houseksk",
+    "address": "1717 N McDicker Ave",
+    "squareFeet": "Sqft: 4000",
+    "garage": "Garage: 1",
+    "bedrooms": "Bedrooms: 4",
+    "bathrooms": "Bathrooms: 4",
+    "City": "Hawthorne",
+    "State": "CA",
+    "Zip/Code": "75206"
+  },
+
+  "expectedPropertyDetails": {
+    "title": "Mountain houseksk",
+    "address": "1717 N McDicker Ave",
+    "askingPrice": "Asking Price: $ 1,000,000",
+    "lotSize": "Lot Size: 9200",
+    "garage": "Garage: 1",
+    "bathrooms": "Bathrooms: 4",
+    "squareFeet": "Square Feet: 4000",
+    "listingDate": "29 November 2024",
+    "bedrooms": "Bedrooms: 4",
+    "realtor": "Realtor: Admin Adminuk",
+    "propertyRealtorTitle": "Property Realtor",
+    "realtorName": "Admin Adminuk",
+    "description": "The QA House."
+  }
+}

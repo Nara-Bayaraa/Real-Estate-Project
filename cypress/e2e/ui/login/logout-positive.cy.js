@@ -1,13 +1,13 @@
-import Dashboard from "../../../support/pageObjects/dashboard.page.js";
-
-describe("User Logout Functionality", () => {
+import Dashboard from "../../../support/page-objects/dashboard.page.js";
+describe("User Logout Functionality - Positive Test Case", () => {
   beforeEach(function () {
-    cy.login();
+    cy.userLogin();
     cy.visit("/dashboard/user/profile");
   });
-  it("[LOGOUT-UI-001] should successfully logout and redirect to login page", () => {
+
+  it("[LOGOUT-POS-001] should successfully logout and redirect the user to login page", () => {
     Dashboard.clickUserIconMenuButton();
     Dashboard.clickLogoutButton();
-    cy.url().should("includes", "/auth/login");
+    cy.url().should("include", "/auth/login");
   });
 });

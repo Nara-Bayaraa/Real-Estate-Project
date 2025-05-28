@@ -1,6 +1,5 @@
 class Dashboard {
-
-get hamburgerMenuBtn() {
+  get hamburgerMenuButton() {
     return cy.get(".MuiBox-root.css-0.iconify.iconify--eva");
   }
   get userIconMenu() {
@@ -9,16 +8,16 @@ get hamburgerMenuBtn() {
   get userProfileMenu() {
     return cy.get('[class*="MuiTypography-root MuiTypography-in"]');
   }
-  get firstNameInp() {
+  get firstNameInput() {
     return cy.get('[name="username"]');
   }
-  get lastNameInp() {
+  get lastNameInput() {
     return cy.get('[name="user_surname"]');
   }
-  get emailInp() {
+  get emailInput() {
     return cy.get('[name="email"]');
   }
-  get logoutBtn() {
+  get logoutButton() {
     return cy.contains("Logout");
   }
   get fullName() {
@@ -27,11 +26,11 @@ get hamburgerMenuBtn() {
   get roleLabel() {
     return cy.get("a p");
   }
-  clickUserIconMenuButton(){
+  clickUserIconMenuButton() {
     this.userIconMenu.click();
   }
-  clickLogoutButton(){
-    this.logoutBtn.click();
+  clickLogoutButton() {
+    this.logoutButton.click();
   }
 }
 export default new Dashboard();

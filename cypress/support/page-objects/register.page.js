@@ -111,7 +111,7 @@ class RegisterPage {
     this.passwordInput.should("be.visible");
   }
 
- assertErrorMessageVisible(expectedMessage) {
+  assertErrorMessageVisible(expectedMessage) {
     cy.contains(expectedMessage).should("be.visible");
   }
 
@@ -134,7 +134,7 @@ class RegisterPage {
   verifyRegisterRealtorIsChecked() {
     this.registerRealtorCheckBox.should("be.checked");
   }
-  
+
   verifyRegisterRealtorIsUnchecked() {
     this.registerRealtorCheckBox.should("not.be.checked");
   }

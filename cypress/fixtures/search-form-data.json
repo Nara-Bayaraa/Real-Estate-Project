@@ -1,0 +1,16 @@
+{
+  "homePageSearchFormData": {
+    "searchByKeyword": "Mountain house",
+    "searchByBedrooms": "3",
+    "searchByPrice": ["500000", "10000000"],
+    "searchByState": "California",
+    "searchByCity": "Hawthorne"
+  },
+  
+  "listingPageSearchFormData": {
+    "searchKeyword": "Mountain house",
+    "selectBedrooms": "3",
+    "searchPropertyPrice": ["$ 0", "$ 600,000"],
+    "selectState:": "Ca"
+  }
+}
