@@ -40,40 +40,21 @@ All tests are modular, using the **Page Object Model (POM)** for maintainable an
 
 ## 🔧 Installation
 
-1. **Clone the repository:**
+1. Clone the repository:
+```bash
+git clone https://github.com/Nara-Bayaraa/real-estate-project.git
+cd real-estate-project
+```
+2. Install project dependencies: Ensure you have Node.js installed, then install the necessary libraries:
+```bash
+npm install
+```
+3. Run the tests: To execute all Cypress tests:
+```bash
+npx cypress open
+```
 
-   ```bash
-   git clone https://github.com/Nara-Bayaraa/real-estate-project.git
-   cd real-estate-project
-   ```
-2. **Install dependencies:**
-   Ensure you have Node.js installed, then run:
-
-   ```bash
-   npm install
-   ```
-3. **Run all tests in Cypress UI:**
-
-   ```bash
-   npm run cy:open
-   ```
-4. **Run all tests in headless mode (terminal):**
-
-   ```bash
-   npm run cy:run
-   ```
-5. **Run all tests in parallel (fastest, uses all CPU cores):**
-
-   ```bash
-   npm run cy:parallel
-   ```
-
-   > Wildcards in scripts mean any new `.cy.js` test files are picked up automatically!
-
----
-
-## 📂 Project Structure
-
+# 📂 Project Structure
 ```
 real-estate-project/
   ├── cypress/
