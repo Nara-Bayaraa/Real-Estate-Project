@@ -1,0 +1,125 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-06-02T02:04:23.999Z",
+    "end": "2025-06-02T02:04:32.803Z",
+    "duration": 8804,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "50c0ab11-1304-4dbf-8c61-77f5a75e6af0",
+      "title": "",
+      "fullFile": "cypress/e2e/ui/property-listing/property-details.cy.js",
+      "file": "cypress/e2e/ui/property-listing/property-details.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "7a928a15-326d-4f3a-99a6-245929c4e604",
+          "title": "Property Details Page: UI and Form Functionality",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "[PROPDET-001] should display all property details correctly",
+              "fullTitle": "Property Details Page: UI and Form Functionality [PROPDET-001] should display all property details correctly",
+              "timedOut": null,
+              "duration": 3909,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_featuredListingsPage.default.clickMoreButton();\n_propertyDetailsPage.default.verifyAllDetails(_validationPropertyDetails.default.expectedPropertyDetails);\n_propertyDetailsPage.default.verifyRealtorName();",
+              "err": {},
+              "uuid": "c3769b99-e39d-49d2-9945-c5d0bf32b2ee",
+              "parentUUID": "7a928a15-326d-4f3a-99a6-245929c4e604",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[PROPDET-002] should allow users to submit an inquiry form and redirect back to featured listings",
+              "fullTitle": "Property Details Page: UI and Form Functionality [PROPDET-002] should allow users to submit an inquiry form and redirect back to featured listings",
+              "timedOut": null,
+              "duration": 4781,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_featuredListingsPage.default.clickMoreButton();\n_propertyDetailsPage.default.clickMakeAnInquiryButton();\n_propertyDetailsPage.default.fillInquiryForm(_formData.default.inquiryFormData);\ncy.reload();\ncy.url().should(\"include\", \"featured-listings\");",
+              "err": {},
+              "uuid": "f4a420cf-2c9e-4b5e-9c0b-3d100c1ef9ac",
+              "parentUUID": "7a928a15-326d-4f3a-99a6-245929c4e604",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "c3769b99-e39d-49d2-9945-c5d0bf32b2ee",
+            "f4a420cf-2c9e-4b5e-9c0b-3d100c1ef9ac"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 8690,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "reportDir": "reports/mochawesome",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

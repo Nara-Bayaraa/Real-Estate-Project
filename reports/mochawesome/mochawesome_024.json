@@ -1,0 +1,144 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-06-02T02:07:49.712Z",
+    "end": "2025-06-02T02:07:55.413Z",
+    "duration": 5701,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "3fcf07db-2be5-4f40-8946-902a3b975994",
+      "title": "",
+      "fullFile": "cypress/e2e/ui/register/user-register-positive.cy.js",
+      "file": "cypress/e2e/ui/register/user-register-positive.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "6f5530e2-d84a-4520-a02f-0723e4846467",
+          "title": "Register Page: User Positive Test Cases",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "[REG-USER-POS-001] should allow user to input all required registration fields and verify values",
+              "fullTitle": "Register Page: User Positive Test Cases [REG-USER-POS-001] should allow user to input all required registration fields and verify values",
+              "timedOut": null,
+              "duration": 2564,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_registerPage.default.fillFirstName(_generateUser.firstName);\n_registerPage.default.fillLastName(_generateUser.lastName);\n_registerPage.default.fillEmail(_generateUser.email);\n_registerPage.default.fillPassword(_generateUser.password);\n_registerPage.default.assertRegisterFieldsContainValues(_generateUser.firstName, _generateUser.lastName, _generateUser.email, _generateUser.password);",
+              "err": {},
+              "uuid": "924b82c9-1b5f-4568-889d-b2a6ce7bf69e",
+              "parentUUID": "6f5530e2-d84a-4520-a02f-0723e4846467",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[REG-USER-POS-002] should register user with valid new credentials and redirect to profile page",
+              "fullTitle": "Register Page: User Positive Test Cases [REG-USER-POS-002] should register user with valid new credentials and redirect to profile page",
+              "timedOut": null,
+              "duration": 1546,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_registerPage.default.fillRegistrationForm(_generateUser.firstName, _generateUser.lastName, _generateUser.email, _generateUser.password);\ncy.url().should(\"include\", \"dashboard/user/profile\");",
+              "err": {},
+              "uuid": "55283e85-7863-4f5e-a576-fb31c04bf5b2",
+              "parentUUID": "6f5530e2-d84a-4520-a02f-0723e4846467",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[REG-USER-POS-003] should toggle password visibility on the registration form",
+              "fullTitle": "Register Page: User Positive Test Cases [REG-USER-POS-003] should toggle password visibility on the registration form",
+              "timedOut": null,
+              "duration": 1518,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_registerPage.default.fillFirstName(_generateUser.firstName);\n_registerPage.default.fillLastName(_generateUser.lastName);\n_registerPage.default.fillEmail(_generateUser.email);\n_registerPage.default.fillPassword(_generateUser.password);\n_registerPage.default.verifyPasswordVisibilityToggleShowsPassword(_generateUser.password);\n_registerPage.default.verifyPasswordVisibilityToggleHidesPassword();",
+              "err": {},
+              "uuid": "2e46f542-45e5-4f05-a188-79c1268d134c",
+              "parentUUID": "6f5530e2-d84a-4520-a02f-0723e4846467",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "924b82c9-1b5f-4568-889d-b2a6ce7bf69e",
+            "55283e85-7863-4f5e-a576-fb31c04bf5b2",
+            "2e46f542-45e5-4f05-a188-79c1268d134c"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 5628,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "reportDir": "reports/mochawesome",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

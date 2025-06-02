@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-06-02T02:07:48.141Z",
+    "end": "2025-06-02T02:07:50.650Z",
+    "duration": 2509,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "63c6c904-f6ba-4bf7-9ebb-1b80f6ef4a9d",
+      "title": "",
+      "fullFile": "cypress/e2e/api/listing-search/api-search-listing.cy.js",
+      "file": "cypress/e2e/api/listing-search/api-search-listing.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "e3b7460d-8488-4bbc-b8f5-9ab43a47f54d",
+          "title": "End-to-End: property listing creation , search created property , and delete created property listing  by ID via API",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "[LISTING-004] Should filter and display listings based on selected state",
+              "fullTitle": "End-to-End: property listing creation , search created property , and delete created property listing  by ID via API [LISTING-004] Should filter and display listings based on selected state",
+              "timedOut": null,
+              "duration": 2241,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_home.default.searchState(_newPropertyListingData.default.newRealEstateAPI.state);\nconst fullState = _newPropertyListingData.default.newRealEstateAPI.state; // \"California\"\nconst abbrState = _stateAbbreviations.default[fullState]; //\"CA\"\n_featuredListings.default.verifyAllResultsIncludeState([fullState, abbrState]);",
+              "err": {},
+              "uuid": "0d223e4d-494f-420a-90a1-c3519058739e",
+              "parentUUID": "e3b7460d-8488-4bbc-b8f5-9ab43a47f54d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "0d223e4d-494f-420a-90a1-c3519058739e"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2241,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "reportDir": "reports/mochawesome",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

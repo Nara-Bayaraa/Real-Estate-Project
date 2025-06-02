@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-06-02T02:04:34.675Z",
+    "end": "2025-06-02T02:04:36.268Z",
+    "duration": 1593,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "3b493864-21d9-41ec-8fa5-8df6c08826f6",
+      "title": "",
+      "fullFile": "cypress/e2e/ui/login/logout-positive.cy.js",
+      "file": "cypress/e2e/ui/login/logout-positive.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "f6dfde3a-499d-4ee2-9dea-8c728a888b1d",
+          "title": "User Logout Functionality - Positive Test Case",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "[LOGOUT-POS-001] should successfully logout and redirect the user to login page",
+              "fullTitle": "User Logout Functionality - Positive Test Case [LOGOUT-POS-001] should successfully logout and redirect the user to login page",
+              "timedOut": null,
+              "duration": 1561,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_headerComponent.default.clickUserIconMenuButton();\n_headerComponent.default.clickLogoutButton();\ncy.url().should(\"include\", \"/auth/login\");",
+              "err": {},
+              "uuid": "240aac20-432b-4349-ad86-d67e7aa7e285",
+              "parentUUID": "f6dfde3a-499d-4ee2-9dea-8c728a888b1d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "240aac20-432b-4349-ad86-d67e7aa7e285"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1561,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "reportDir": "reports/mochawesome",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-06-02T02:04:51.964Z",
+    "end": "2025-06-02T02:04:52.637Z",
+    "duration": 673,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "d2f1c192-fa39-4385-b0d4-14ce874578b8",
+      "title": "",
+      "fullFile": "cypress/e2e/api/listings/api-get-listing.cy.js",
+      "file": "cypress/e2e/api/listings/api-get-listing.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "e5b05e99-998c-40f8-8aaa-1fde2c94caf5",
+          "title": "API: Create and Get Listing",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "[LISTING-001] should create a new property listing via API",
+              "fullTitle": "API: Create and Get Listing [LISTING-001] should create a new property listing via API",
+              "timedOut": null,
+              "duration": 538,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.createListing({\n  listingData: this.listingData,\n  imagePath: \"images/beautifulHouse.png\"\n}).then(createdListingId => {\n  cy.log(`New Listing Created! ID: ${createdListingId}`);\n  cy.writeFile(path, {\n    createdListingId\n  });\n});",
+              "err": {},
+              "uuid": "c89ceeaa-5acb-4206-98af-e491f9442443",
+              "parentUUID": "e5b05e99-998c-40f8-8aaa-1fde2c94caf5",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[LISTING-002] should GET the created listing and verify details",
+              "fullTitle": "API: Create and Get Listing [LISTING-002] should GET the created listing and verify details",
+              "timedOut": null,
+              "duration": 120,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const bearerToken = `Bearer ${localStorage.getItem(\"accessToken\") || \"\"}`;\ncy.fixture(\"created-listing-ID.json\").then(({\n  createdListingId\n}) => {\n  cy.api({\n    method: \"GET\",\n    url: `/api/estate-objects/${createdListingId}`,\n    headers: {\n      Authorization: bearerToken\n    }\n  }).then(getResponse => {\n    expect(getResponse.status).to.eq(200);\n    expect(getResponse.body.estateObject.title).to.eq(this.listingData.title);\n  });\n});",
+              "err": {},
+              "uuid": "ba7b883f-251c-432e-8159-c663f57a4907",
+              "parentUUID": "e5b05e99-998c-40f8-8aaa-1fde2c94caf5",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "c89ceeaa-5acb-4206-98af-e491f9442443",
+            "ba7b883f-251c-432e-8159-c663f57a4907"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 658,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "reportDir": "reports/mochawesome",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

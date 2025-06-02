@@ -8,7 +8,7 @@ on:
     branches: [main]
 
 jobs:
-  Api-Test:
+  cypress-parallel-e2e:
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
