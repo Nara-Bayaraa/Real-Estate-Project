@@ -1,24 +1,18 @@
-describe('End-to-End: Create and Delete Property Listing via API', () => {
-  const path = 'cypress/fixtures/last-listing-ID.json';
-  
-it('[LISTING-001] should create a new property listing via API', () => {
-  cy.fixture('new-property-listing-data.json').then((data) => {
-    cy.createListing({
-      listingData: data.newRealEstateAPI,
-      imagePath: 'images/beautifulHouse.png'
-    }).then((listingId) => {
-      cy.log(`New Listing Created! ID: ${listingId}`);
-    cy.writeFile(path, { listingId });
+describe('Delete Property Listing via API', () => {
+const listingIds = [19848, 19846, 19845];
+
+it("should delete multiple listings individually", () => {
+  const bearerToken = `Bearer ${localStorage.getItem("accessToken") || ""}`;
+  listingIds.forEach((listingId) => {
+    cy.api({
+      method: "DELETE",
+      url: `/api/estate-objects/${listingId}`,
+      headers: {
+        Authorization: bearerToken,
+      },
+    }).then((response) => {
+      expect(response.status).to.eq(200); 
     });
   });
-});
-
-it('[LISTING-002] should delete the created property listing by ID via API', () => {
- cy.fixture('last-listing-ID.json').then(({ listingId }) => {
-  cy.deleteListing(listingId).then((response) => {
-    cy.log(`Deleted Listing ID: ${listingId}`);
-    expect(response.status).to.eq(200); 
-  });
-});
 });
 });

@@ -3,7 +3,7 @@ const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
   e2e: {
-    baseUrl: "https://dev.delekhomes.com",
+   baseUrl: process.env.API_URL,
     defaultCommandTimeout: 10000,
     watchForFileChanges: false,
     video: false,
@@ -19,14 +19,14 @@ module.exports = defineConfig({
       openMode: 0,
     },
     
-    reporterOptions: {
-      reporterEnabled: "mochawesome",
-      reporterOptions: {
-        reportDir: "cypress/reports/mochawesome",
-        overwrite: false,
-        html: false,
-        json: true,
-      },
+    reporter: "mochawesome",
+  reporterOptions: {
+    charts: true,
+    reportDir: "reports/mochawesome",
+    overwrite: false,
+    html: false,
+    json: true,
+  
     },
 
     setupNodeEvents(on, config) {},
