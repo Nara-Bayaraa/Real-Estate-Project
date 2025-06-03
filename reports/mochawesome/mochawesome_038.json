@@ -1,0 +1,201 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 6,
+    "passes": 6,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-06-03T14:04:57.941Z",
+    "end": "2025-06-03T14:05:07.378Z",
+    "duration": 9437,
+    "testsRegistered": 6,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "5a0cda52-e604-47a5-b404-83cef5d4a34f",
+      "title": "",
+      "fullFile": "cypress/e2e/ui/register/user-register-negative.cy.js",
+      "file": "cypress/e2e/ui/register/user-register-negative.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "9c6545ac-683b-41e8-a018-d28f6db1f6d8",
+          "title": "Register Page: User Negative Test Cases",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "[REG-USER-NEG-001] should display error when First Name field is empty",
+              "fullTitle": "Register Page: User Negative Test Cases [REG-USER-NEG-001] should display error when First Name field is empty",
+              "timedOut": null,
+              "duration": 3273,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_registerPage.default.fillRegistrationForm(\"\", _generateUser.lastName, _generateUser.email, _generateUser.password);\n_registerPage.default.assertErrorMessageVisible(this.message.registration.firstNameRequired);",
+              "err": {},
+              "uuid": "06bca110-b5a5-459f-b48a-31b668f6a3eb",
+              "parentUUID": "9c6545ac-683b-41e8-a018-d28f6db1f6d8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[REG-USER-NEG-002] should display error when Last Name field is empty",
+              "fullTitle": "Register Page: User Negative Test Cases [REG-USER-NEG-002] should display error when Last Name field is empty",
+              "timedOut": null,
+              "duration": 1458,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_registerPage.default.fillRegistrationForm(_generateUser.firstName, \"\", _generateUser.email, _generateUser.password);\n_registerPage.default.assertErrorMessageVisible(this.message.registration.lastNameRequired);",
+              "err": {},
+              "uuid": "7d3767bf-fa63-4509-a448-c9ea6a0f8c0a",
+              "parentUUID": "9c6545ac-683b-41e8-a018-d28f6db1f6d8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[REG-USER-NEG-003] should display error when Email field is empty",
+              "fullTitle": "Register Page: User Negative Test Cases [REG-USER-NEG-003] should display error when Email field is empty",
+              "timedOut": null,
+              "duration": 1149,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_registerPage.default.fillRegistrationForm(_generateUser.firstName, _generateUser.lastName, \"\", _generateUser.password);\n_registerPage.default.assertErrorMessageVisible(this.message.registration.emailRequired);",
+              "err": {},
+              "uuid": "3472fcdf-0eb4-4072-a4e0-003d3393c982",
+              "parentUUID": "9c6545ac-683b-41e8-a018-d28f6db1f6d8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[REG-USER-NEG-004] should display error when Password field is empty",
+              "fullTitle": "Register Page: User Negative Test Cases [REG-USER-NEG-004] should display error when Password field is empty",
+              "timedOut": null,
+              "duration": 1165,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_registerPage.default.fillRegistrationForm(_generateUser.firstName, _generateUser.lastName, _generateUser.email, \"\");\n_registerPage.default.assertErrorMessageVisible(this.message.registration.passwordRequired);",
+              "err": {},
+              "uuid": "0ab36b1c-3b66-4c4f-b41a-3dce002fb7ce",
+              "parentUUID": "9c6545ac-683b-41e8-a018-d28f6db1f6d8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[REG-USER-NEG-005] should display errors for all fields when submitting an empty form",
+              "fullTitle": "Register Page: User Negative Test Cases [REG-USER-NEG-005] should display errors for all fields when submitting an empty form",
+              "timedOut": null,
+              "duration": 826,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_registerPage.default.fillRegistrationForm(\"\", \"\", \"\", \"\");\nconst requiredFields = [this.message.registration.firstNameRequired, this.message.registration.lastNameRequired, this.message.registration.emailRequired, this.message.registration.passwordRequired];\nrequiredFields.forEach(msg => {\n  _registerPage.default.assertErrorMessageVisible(msg);\n});",
+              "err": {},
+              "uuid": "0b075a8b-8d6a-42d1-8766-f9aefa3f667a",
+              "parentUUID": "9c6545ac-683b-41e8-a018-d28f6db1f6d8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[REG-USER-NEG-006] should display error when registering with an already registered email",
+              "fullTitle": "Register Page: User Negative Test Cases [REG-USER-NEG-006] should display error when registering with an already registered email",
+              "timedOut": null,
+              "duration": 1407,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_registerPage.default.fillRegistrationForm(_generateUser.firstName, _generateUser.lastName, this.userCredential.validLoginData.email, _generateUser.password);\n_registerPage.default.assertInputErrorMessageIsDisplayed();",
+              "err": {},
+              "uuid": "9ad163c2-228b-4638-8a37-bd26d1d34624",
+              "parentUUID": "9c6545ac-683b-41e8-a018-d28f6db1f6d8",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "06bca110-b5a5-459f-b48a-31b668f6a3eb",
+            "7d3767bf-fa63-4509-a448-c9ea6a0f8c0a",
+            "3472fcdf-0eb4-4072-a4e0-003d3393c982",
+            "0ab36b1c-3b66-4c4f-b41a-3dce002fb7ce",
+            "0b075a8b-8d6a-42d1-8766-f9aefa3f667a",
+            "9ad163c2-228b-4638-8a37-bd26d1d34624"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 9278,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "reportDir": "reports/mochawesome",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

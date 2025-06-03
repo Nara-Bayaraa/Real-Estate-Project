@@ -1,0 +1,125 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-06-03T14:04:56.316Z",
+    "end": "2025-06-03T14:04:57.453Z",
+    "duration": 1137,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "17da0dbd-5399-46f7-b46a-4a1850f97cc0",
+      "title": "",
+      "fullFile": "cypress/e2e/api/listings/api-create-listing.cy.js",
+      "file": "cypress/e2e/api/listings/api-create-listing.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "a12bd82c-24f6-4fb3-b419-bbce803b4fe9",
+          "title": "End-to-End: Create and Delete Property Listing via API",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "[LISTING-001] should create a new property listing via API",
+              "fullTitle": "End-to-End: Create and Delete Property Listing via API [LISTING-001] should create a new property listing via API",
+              "timedOut": null,
+              "duration": 937,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture('new-property-listing-data.json').then(data => {\n  cy.createListing({\n    listingData: data.newRealEstateAPI,\n    imagePath: 'images/beautifulHouse.png'\n  }).then(listingId => {\n    cy.log(`New Listing Created! ID: ${listingId}`);\n    cy.writeFile(path, {\n      listingId\n    });\n  });\n});",
+              "err": {},
+              "uuid": "3529c2b4-825b-4f8b-ab3f-cb4962d7c7ba",
+              "parentUUID": "a12bd82c-24f6-4fb3-b419-bbce803b4fe9",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[LISTING-002] should delete the created property listing by ID via API",
+              "fullTitle": "End-to-End: Create and Delete Property Listing via API [LISTING-002] should delete the created property listing by ID via API",
+              "timedOut": null,
+              "duration": 162,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture('last-listing-ID.json').then(({\n  listingId\n}) => {\n  cy.deleteListing(listingId).then(response => {\n    cy.log(`Deleted Listing ID: ${listingId}`);\n    expect(response.status).to.eq(200);\n  });\n});",
+              "err": {},
+              "uuid": "cda95b5c-71c9-4d3a-8e0e-a1b2498557dc",
+              "parentUUID": "a12bd82c-24f6-4fb3-b419-bbce803b4fe9",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "3529c2b4-825b-4f8b-ab3f-cb4962d7c7ba",
+            "cda95b5c-71c9-4d3a-8e0e-a1b2498557dc"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1099,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "reportDir": "reports/mochawesome",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
