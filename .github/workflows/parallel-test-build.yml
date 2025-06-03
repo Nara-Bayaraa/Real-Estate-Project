@@ -16,10 +16,24 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4.2.0
         
-      - name: Cypress run
-        uses: cypress-io/github-action@v6.6.1
+     
+      - name: Set up Node.js 20.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20.x"
 
-      - name: Run Parallel Cypress Tests
+      - name: Cache npm dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-npm-cache-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-cache-
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Cypress E2E tests in parallel
         run: npm run cy:parallel
       
       - name: Merge Mochawesome Reports
