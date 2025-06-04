@@ -23,7 +23,5 @@ get userProfileMenu() {
   }
   get personIcon() {return cy.get('[data-testid="PersonIcon"]')}
 
-
-}
 }
 export default new SidebarMenuPage();

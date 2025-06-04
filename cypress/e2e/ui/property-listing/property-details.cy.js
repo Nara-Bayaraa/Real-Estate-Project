@@ -8,6 +8,7 @@ describe("Property Details Page: UI and Form Functionality", () => {
   beforeEach(function () {
     cy.visit("/");
     cy.errorHandler();
+    
     HomePage.fillHomeSearchForm({
       keyword: SearchFormData.homePageSearchFormData.searchByKeyword,
       bedrooms: SearchFormData.homePageSearchFormData.searchByBedrooms,
