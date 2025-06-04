@@ -26,6 +26,22 @@ All tests are modular, using the **Page Object Model (POM)** for maintainable an
 * **GitHub Actions CI/CD:**
   Modern pipeline support with parallel execution and dependency caching.
 
+
+---
+
+## 🕒 Automated CI Schedule
+
+- **Nightly runs:**  
+  This project’s test suite is **automatically triggered every day at 5:00 AM Chicago time (CST)** via a scheduled GitHub Actions workflow.
+
+- **Configuration:**  
+  The schedule is managed using this [cron expression](https://crontab.guru/#0_11_*_*_*):
+
+- **Purpose:**  
+Purpose:
+Automatically checks test health and coverage daily, so you don’t have to run tests manually.
+All test results and reports are generated and can be accessed in the GitHub Actions workflow logs and artifacts.
+
 ---
 
 ## 🛠️ Tech Stack
