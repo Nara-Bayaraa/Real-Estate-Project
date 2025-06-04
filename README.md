@@ -236,7 +236,7 @@ jobs:
 1. Fork the repository
 2. Create a branch: `git checkout -b feature/your-feature`
 3. Commit your changes: `git commit -m "Add: feature or fix description"`
-4. Push and open a Pull Request
+4. Open a Pull Request against the main branch for review.
 
 ---
 ## 📄 License

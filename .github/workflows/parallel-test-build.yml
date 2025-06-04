@@ -2,7 +2,7 @@ name: Parallel Test Build
 
 on:
   schedule:
-    - cron: "20 0 * * *"  # Runs every day at 9:00 PM UTC
+    - cron: '0 11 * * *'   #run every day at  5:00 AM Chicago time (CST)
   workflow_dispatch:
   pull_request:
     types: [opened, reopened, edited, synchronize]
@@ -32,9 +32,6 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-
-      - name: Clean reports folder
-        run: rm -rf reports
 
       - name: Run Cypress E2E tests in parallel
         run: npm run cy:parallel
