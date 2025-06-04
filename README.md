@@ -31,6 +31,11 @@ All tests are modular, using the **Page Object Model (POM)** for maintainable an
 
 ## 🕒 Automated CI Schedule
 
+```bash
+schedule:
+    - cron: '0 11 * * *'   #run every day at  5:00 AM Chicago time (CST)
+```
+
 - **Nightly runs:**  
   This project’s test suite is **automatically triggered every day at 5:00 AM Chicago time (CST)** via a scheduled GitHub Actions workflow.
 
