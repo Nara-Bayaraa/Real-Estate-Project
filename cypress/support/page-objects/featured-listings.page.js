@@ -52,7 +52,11 @@ class FeaturedListingsPage {
   get postSuccessMessage() {
     return cy.contains("Post success!");
   }
-
+  get heartIcon() {
+    return cy.get(
+      "body div[id='root'] div[class='css-o44is'] div[class='MuiBox-root css-0'] div[class='MuiContainer-root MuiContainer-maxWidthLg css-1qsxih2'] div[class='MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-1h77wgb'] div:nth-child(1) div:nth-child(1) div:nth-child(1) div:nth-child(2) svg"
+    );
+  }
   clickMoreButton() {
     this.moreInfoButton.click();
   }
@@ -116,6 +120,16 @@ class FeaturedListingsPage {
     Object.values(expectedDetails).forEach((value) => {
       this.propertyCard.contains(value).should("be.visible");
     });
+  }
+
+  clickHeartIcon() {
+    cy.waitUntil(() => this.heartIcon.should("be.visible"));
+    this.heartIcon.click();
+    this.heartIcon.click();
+  }
+  
+  verifyHeartIconIsRed() {
+    this.heartIcon.should("have.css", "color", "rgb(255, 0, 0)");
   }
 }
 export default new FeaturedListingsPage();

@@ -1,5 +1,5 @@
 describe('Delete Property Listing via API', () => {
-const listingIds = [19848, 19846, 19845];
+const listingIds = [19942];
 
 it("should delete multiple listings individually", () => {
   const bearerToken = `Bearer ${localStorage.getItem("accessToken") || ""}`;

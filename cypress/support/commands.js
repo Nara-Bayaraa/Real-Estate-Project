@@ -9,11 +9,19 @@ Cypress.Commands.add("errorHandler", () => {
 Cypress.Commands.add("enableDarkTheme", () => {
   HeaderComponentPage.toggleTheme();
 });
+// UI-Login-User
+Cypress.Commands.add("login", (email, password, url = "/login") => {
+  cy.visit(url); 
+  cy.get('[name="email"]').type(email);
+  cy.get('[name="password"]').type(password);
+  cy.get('[type="submit"]').click();
+});
 
-//LOGIN 
+
+//Api-Login-User
 Cypress.Commands.add(
   "userLogin",
-  (email = "waped44366@gianes.com", password = "DontTestMe") => {
+  (email = "pimig93664@pricegh.com", password = "DontTestMe") => {
     cy.api({
       method: "POST",
       url: "/api/users/login",
@@ -26,7 +34,7 @@ Cypress.Commands.add(
     });
   }
 );
-
+//Api-Login-Realtor
 Cypress.Commands.add("realtorLogin", () => {
   cy.api({
     method: "POST",
@@ -111,3 +119,5 @@ Cypress.Commands.add("deleteListing", (listingId) => {
     },
   });
 });
+import { registerCommand } from "cypress-wait-for-stable-dom";
+registerCommand();

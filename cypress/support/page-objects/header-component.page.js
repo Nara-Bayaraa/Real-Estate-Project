@@ -83,6 +83,9 @@ class HeaderComponentPage {
   clickLoginLink() {
     this.registerLink.click();
   }
+  clickDashboardLink() {
+    this.dashboardLink.click();
+  }
   clickUserIconMenuButton() {
     this.userIconMenu.click();
   }

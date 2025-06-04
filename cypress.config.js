@@ -12,6 +12,8 @@ module.exports = defineConfig({
     env: {
       email: process.env.REALTOR_EMAIL,
       password: process.env.REALTOR_PASSWORD,
+     
+  
     },
 
     retries: {
@@ -28,6 +30,8 @@ module.exports = defineConfig({
       json: true,
     },
 
-    setupNodeEvents(on, config) {},
+    setupNodeEvents(on, config) {
+     
+    },
   },
 });

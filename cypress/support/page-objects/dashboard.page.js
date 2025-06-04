@@ -23,8 +23,13 @@ class Dashboard {
   get Breadcrumbs() {
     return cy.get('[class="MuiBreadcrumbs-ol css-nhb8h9"]');
   }
-  get favoritesSectionTitle() {
+  get favoritesSectionHeader() {
     return cy.contains("Favorites");
+  }
+  get favoriteListing() {
+    return cy.get(
+      '[class*="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid"]'
+    );
   }
   verifyProfilePageTitleIsVisible() {
     this.profilePageTitle.should("be.visible");
@@ -40,6 +45,12 @@ class Dashboard {
   }
   verifyProfileBannerCardIsDisplayed() {
     this.profileBannerCard.should("be.visible");
+  }
+  verifyFavoritedListingIsDisplayed() {
+    cy.waitUntil(() => this.favoriteListing.should("be.visible"));
+  }
+  verifyFavoritesCount(expectedCount) {
+    this.favoritesSectionHeader.should("contain", `(${expectedCount})`);
   }
 }
 export default new Dashboard();
