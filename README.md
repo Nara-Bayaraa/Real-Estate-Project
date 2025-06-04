@@ -1,5 +1,4 @@
 ---
-
 # 🏠 Real Estate Project – Cypress Automated Testing Suite
 
 ## 🖥️ Project Description
@@ -106,7 +105,6 @@ npx cypress open
 ```
 real-estate-project/
   ├── cypress/
-  │   ├── downloads/                   # Downloaded files and screenshots from tests
   │   ├── e2e/                         # All Cypress test specs
   │   │   ├── api/
   │   │   │   ├── listings/            # API tests for property listings (CRUD)
@@ -195,7 +193,7 @@ real-estate-project/
 
 ---
 
-## 🤖 Continuous Integration
+## 🔄 Continuous Integration
 
 This project uses **GitHub Actions** for CI/CD.
 The parallel workflow speeds up testing by running all Cypress specs in parallel on every push and PR.
@@ -237,11 +235,10 @@ jobs:
 
 1. Fork the repository
 2. Create a branch: `git checkout -b feature/your-feature`
-3. Commit your changes: `git commit -m "feat: add [your feature]"`
+3. Commit your changes: `git commit -m "Add: feature or fix description"`
 4. Push and open a Pull Request
 
 ---
-
 ## 📄 License
 
 MIT License
@@ -252,9 +249,9 @@ MIT License
 
 * Add visual regression and accessibility tests
 * Expand negative and edge case scenarios
-* Integrate with Cypress Dashboard for advanced analytics
 * Multi-browser cross-platform test execution
 
 ---
 
 Happy testing! 🚀
+---
