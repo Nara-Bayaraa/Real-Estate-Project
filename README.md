@@ -222,17 +222,29 @@ The parallel workflow speeds up testing by running all Cypress specs in parallel
 **Workflow example:**
 
 ```yaml
+name: Parallel Test Build
+
+on:
+  schedule:
+    - cron: '0 11 * * *'   #run every day at  5:00 AM Chicago time (CST)
+  workflow_dispatch:
+  pull_request:
+    types: [opened, reopened, edited, synchronize]
+  push:
+    branches: [main]
+
 jobs:
   cypress-parallel-e2e:
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
         uses: actions/checkout@v4.2.0
-
-      - name: Set up Node.js
+        
+     
+      - name: Set up Node.js 20.x
         uses: actions/setup-node@v4
         with:
-          node-version: '20.x'
+          node-version: "20.x"
 
       - name: Cache npm dependencies
         uses: actions/cache@v4
@@ -246,8 +258,19 @@ jobs:
         run: npm ci
 
       - name: Run Cypress E2E tests in parallel
-        env:
         run: npm run cy:parallel
+
+      - name: Merge Mochawesome Reports
+        run: npm run merge:reports
+
+      - name: Generate HTML Report
+        run: npm run generate:report
+
+      - name: Upload HTML Report Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: mochawesome-html
+          path: reports/html/
 ```
 
 ---
