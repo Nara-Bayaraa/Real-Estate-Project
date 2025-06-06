@@ -1,5 +1,6 @@
 import HeaderComponentPage from "../../../support/page-objects/header-component.page";
 describe("User Logout Functionality - Positive Test Case", () => {
+  
   beforeEach(function () {
     cy.userLogin();
     cy.visit("/dashboard/user/profile");

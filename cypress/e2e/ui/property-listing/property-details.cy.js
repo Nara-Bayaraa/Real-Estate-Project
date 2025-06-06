@@ -4,11 +4,13 @@ import HomePage from "../../../support/page-objects/home.page.js";
 import FormData from "../../../fixtures/form-data.json";
 import SearchFormData from "../../../fixtures/search-form-data.json";
 import ValidateDetails from "../../../fixtures/validation-property-details.json";
+
 describe("Property Details Page: UI and Form Functionality", () => {
+  
   beforeEach(function () {
     cy.visit("/");
     cy.errorHandler();
-    
+
     HomePage.fillHomeSearchForm({
       keyword: SearchFormData.homePageSearchFormData.searchByKeyword,
       bedrooms: SearchFormData.homePageSearchFormData.searchByBedrooms,

@@ -42,7 +42,7 @@ class HomePage {
     this.heroTitle.should("be.visible");
   }
 
-  verifyintroTextIsVisible() {
+  verifyIntroTextIsVisible() {
     this.introText.should("be.visible");
   }
 

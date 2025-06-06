@@ -63,6 +63,7 @@ class FeaturedListingsPage {
   assertSearchResultDisplayed(expectedText) {
     this.mainContentContainer.should("contain.text", expectedText);
   }
+
   verifyAllResultsIncludeKeyword(keyword) {
     this.allTitlesValues.each(($el) => {
       cy.wrap($el)
@@ -95,6 +96,7 @@ class FeaturedListingsPage {
       expect(price).to.be.lte(10000000);
     });
   }
+  
   verifyAllResultsIncludeCity(keyword) {
     this.allCitiesValues.each(($el) => {
       cy.wrap($el).invoke("text").should("include", keyword);

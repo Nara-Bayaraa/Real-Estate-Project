@@ -1,26 +1,38 @@
 import LoginPage from "../../../support/page-objects/login.page.js";
+
 describe("Login Functionality: Negative Test Cases", () => {
+  let errorMessage;
+  let invalidEmail;
+  let invalidPassword;
+  let validEmail;
+  let validPassword;
+
   beforeEach(() => {
-    cy.visit("auth/login");
-     cy.fixture("userCredentials.json").as("userCredential");
-    cy.fixture("validation-messages.json").as("message");
+    cy.visit("auth/register");
+    cy.fixture("validation-messages.json").then((data) => {
+      errorMessage = data.login;
+    });
+
+    cy.fixture("userCredentials.json").then((data) => {
+      invalidEmail = data.invalidLoginData.email;
+      invalidPassword = data.invalidLoginData.password;
+      validEmail = data.validLoginData.email;
+      validPassword = data.validLoginData.password;
+    });
   });
 
-  it("LOGIN-NEG-001] should display error for invalid email and password format", function () {
-    LoginPage.login(
-      this.userCredential.invalidLoginData.email,
-      this.userCredential.invalidLoginData.password
-    );
-    LoginPage.assertErrorMessageVisible(this.message.login.invalidEmail)
+  it("LOGIN-001] should display error for invalid email and password format", () => {
+    LoginPage.login(invalidEmail, invalidPassword);
+    LoginPage.assertErrorMessageVisible(errorMessage.INVALID_EMAIL);
   });
 
-  it("[LOGIN-NEG-002] should display error when email filed is empty", function () {
-    LoginPage.login("" , this.userCredential.validLoginData.password);
-       LoginPage.assertErrorMessageVisible(this.message.login.emailRequired);
+  it("[LOGIN-002] should display error when email filed is empty", () => {
+    LoginPage.login("", validPassword);
+    LoginPage.assertErrorMessageVisible(errorMessage.EMAIL_REQUIRED);
   });
 
-  it("[LOGIN-NEG-003] should display error when password field is empty", function () {
-    LoginPage.login(this.userCredential.validLoginData.email, "" );
-    LoginPage.assertErrorMessageVisible(this.message.login.passwordRequired);
+  it("[LOGIN-003] should display error when password field is empty", () => {
+    LoginPage.login(validEmail, "");
+    LoginPage.assertErrorMessageVisible(errorMessage.PASSWORD_REQUIRED);
   });
 });

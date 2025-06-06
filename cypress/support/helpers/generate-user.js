@@ -7,7 +7,7 @@ const password = faker.internet.password();
 
 export {firstName, lastName, email, password}
 
-  export const generateUserRegistrationData= () => ({
+  export const generateUserRegistrationData = () => ({
   firstName: faker.person.firstName(),
   lastName: faker.person.lastName(),
   email: faker.internet.email(),

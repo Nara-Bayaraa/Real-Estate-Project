@@ -6,10 +6,12 @@ import StateAbbreviations from "../../../support/helpers/state-abbreviations";
 describe("End-to-End: property listing creation , search created property , and delete created property listing  by ID via API", () => {
   const image = "images/luxuryApartment.png";
   let createdListingId;
+
   beforeEach(() => {
     cy.visit("https://dev.delekhomes.com/");
     cy.errorHandler();
   });
+
   before(() => {
     cy.createListing({
       listingData: ListingData.newRealEstateAPI,
@@ -40,7 +42,7 @@ describe("End-to-End: property listing creation , search created property , and 
     );
   });
 
-  it.only("[LISTING-004] Should filter and display listings based on selected state", () => {
+  it("[LISTING-004] Should filter and display listings based on selected state", () => {
     HomePage.searchState(ListingData.newRealEstateAPI.state);
     const fullState = ListingData.newRealEstateAPI.state; // "California"
     const abbrState = StateAbbreviations[fullState]; //"CA"
@@ -70,7 +72,6 @@ describe("End-to-End: property listing creation , search created property , and 
   after(() => {
     if (createdListingId) {
       cy.deleteListing(createdListingId);
-      expect(deleteResponse.status).to.be.oneOf([200, 204]);
     }
   });
 });

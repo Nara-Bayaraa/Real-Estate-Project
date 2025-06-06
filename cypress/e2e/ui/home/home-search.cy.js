@@ -2,46 +2,48 @@ import HomePage from "../../../support/page-objects/home.page";
 import FeaturedListingsPage from "../../../support/page-objects/featured-listings.page";
 
 describe("Home Page: Property Search Functionality", () => {
-  beforeEach(function () {
+  let searchFormData;
+  let validationDetails;
+
+  beforeEach(() => {
     cy.visit("/");
     cy.errorHandler();
-    cy.fixture("search-form-data.json").as("searchFormData");
-    cy.fixture("validation-property-details.json").as(
-      "validationDetails" );
+
+  cy.fixture("search-form-data.json").then((data) => {
+    searchFormData = data;
   });
 
-  it("[HOME-001] should display search results matching the entered keyword", function () {
+  cy.fixture("validation-property-details.json").then((data) => {
+    validationDetails = data;
+  });
+  });
+  
+  it("[HOME-001] should display search results matching the entered keyword", () => {
     HomePage.searchKeyword(
-      this.searchFormData.homePageSearchFormData.searchByKeyword
+      searchFormData.homePageSearchFormData.searchByKeyword
     );
     FeaturedListingsPage.verifyAllResultsIncludeKeyword(
-      this.validationDetails.expecteHomeSearchdResults.byKeyword
+      validationDetails.expecteHomeSearchdResults.byKeyword
     );
   });
 
-  it("[HOME-002] should filter and display listings based on selected number of bedrooms", function () {
+  it("[HOME-002] should filter and display listings based on selected number of bedrooms", () => {
     HomePage.searchBedroom(
-      this.searchFormData.homePageSearchFormData.searchByBedrooms
+      searchFormData.homePageSearchFormData.searchByBedrooms
     );
     FeaturedListingsPage.verifyAllResultsIncludeBedroom(
-      this.validationDetails.expecteHomeSearchdResults.byBedroom
+      validationDetails.expecteHomeSearchdResults.byBedroom
     );
   });
 
-  it.only("[HOME-003] should filter and display listings within the selected price range", function () {
-});
+  it("[HOME-003] should filter and display listings within the selected price range", () => {
+    FeaturedListingsPage.verifyResultsIncludePriceRange();
+  });
 
-  it("[HOME-005] should display listings based on the selected state", function () {
-    HomePage.searchState(
-      this.searchFormData.homePageSearchFormData.searchByState
-    );
+  it("[HOME-005] should display listings based on the selected state", () => {
+    HomePage.searchState(searchFormData.homePageSearchFormData.searchByState);
     FeaturedListingsPage.verifyAllResultsIncludeState(
-      this.validationDetails.expecteHomeSearchdResults.byState
+      validationDetails.expecteHomeSearchdResults.byState
     );
   });
 });
-
-
-
-
-

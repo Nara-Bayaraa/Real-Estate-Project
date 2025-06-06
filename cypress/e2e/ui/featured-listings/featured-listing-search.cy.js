@@ -3,6 +3,7 @@ import FeaturedListingsPage from "../../../support/page-objects/featured-listing
 import SearchFormData from "../../../fixtures/search-form-data.json";
 import ValidateDetails from "../../../fixtures/validation-property-details.json";
 describe("Featured Listings Page: Property Search Functionality and Results Validation", () => {
+  
   beforeEach(() => {
     cy.visit("/");
     cy.errorHandler();

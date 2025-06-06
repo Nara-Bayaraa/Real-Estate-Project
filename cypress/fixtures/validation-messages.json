@@ -1,15 +1,16 @@
 {
   "registration": {
-    "firstNameRequired": "First name required",
-    "lastNameRequired": "Last name required",
-    "emailRequired": "Email is required",
-    "passwordRequired": "Password is required",
-    "inputError": "Input data validation failed",
-    "invalidEmail": "Email must be a valid email address"
+    "FIRSTNAME_REQUIRED": "First name required",
+    "LASTNAME_REQUIRED": "Last name required",
+    "EMAIL_REQUIRED": "Email is required",
+    "PASSWORD_REQUIRED": "Password is required",
+    "INPUT_DATA_FAILED": "Input data validation failed",
+    "INVALID_EMAIL": "Email must be a valid email address"
   },
+  
   "login": {
-    "emailRequired": "Email is required",
-    "passwordRequired": "Password is required",
-    "invalidEmail": "Email must be a valid email address"
+    "EMAIL_REQUIRED": "Email is required",
+    "PASSWORD_REQUIRED": "Password is required",
+    "INVALID_EMAIL": "Email must be a valid email address"
   }
 }
