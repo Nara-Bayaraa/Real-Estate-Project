@@ -3,8 +3,9 @@ import DashboardPage from "../../../support/page-objects/dashboard.page";
 import HeaderComponentPage from "../../../support/page-objects/header-component.page";
 
 describe("Featured Listing: Add to Favorites and Dashboard Sync", () => {
-  let favoritesCount = "1";
 
+  let favoritesCount = "1";
+  
   beforeEach(function () {
     cy.userLogin();
     cy.visit("/featured-listings");

@@ -1,24 +1,27 @@
 import LoginPage from "../../../support/page-objects/login.page.js";
 
 describe("Login Functionality: Negative Test Cases", () => {
+  
   let errorMessage;
   let invalidEmail;
   let invalidPassword;
   let validEmail;
   let validPassword;
 
-  beforeEach(() => {
-    cy.visit("auth/register");
+  before(() => {
     cy.fixture("validation-messages.json").then((data) => {
       errorMessage = data.login;
     });
-
     cy.fixture("userCredentials.json").then((data) => {
       invalidEmail = data.invalidLoginData.email;
       invalidPassword = data.invalidLoginData.password;
       validEmail = data.validLoginData.email;
       validPassword = data.validLoginData.password;
     });
+  });
+
+  beforeEach(() => {
+    cy.visit("auth/register");
   });
 
   it("LOGIN-001] should display error for invalid email and password format", () => {

@@ -1,6 +1,7 @@
 import LoginPage from "../../../support/page-objects/login.page.js";
 
 describe("Login Functionality: Positive Test Cases", () => {
+  
   before(() => {
     cy.visit("auth/login");
   });

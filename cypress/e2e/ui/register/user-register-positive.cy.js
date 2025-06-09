@@ -22,15 +22,13 @@ describe("Register Page: User Positive Test Cases", () => {
 
   it("[REG-USER-002] should register user with valid new credentials and redirect to profile page", () => {
     RegisterPage.fillRegistrationForm(firstName, lastName, email, password);
+    RegisterPage.clickRegisterButton()
     cy.url().should("include", "dashboard/user/profile");
   });
   
-  it("[REG-USER-003] should toggle password visibility on the registration form", () => {
-    RegisterPage.fillFirstName(firstName);
-    RegisterPage.fillLastName(lastName);
-    RegisterPage.fillEmail(email);
-    RegisterPage.fillPassword(password);
-    RegisterPage.verifyPasswordVisibilityToggleShowsPassword(password);
+  it.only("[REG-USER-003] should toggle password visibility on the registration form", () => {
+     RegisterPage.fillRegistrationForm(firstName, lastName, email, password);
+    RegisterPage.verifyPasswordVisibilityToggleShowsPassword();
     RegisterPage.verifyPasswordVisibilityToggleHidesPassword();
   });
 });

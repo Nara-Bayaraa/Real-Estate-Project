@@ -1,4 +1,4 @@
-name: Parallel Test Build
+name: Real - Estate Parallel Test Build
 
 on:
   schedule:

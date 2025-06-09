@@ -10,6 +10,7 @@ describe("Register Page: Realtor Positive Test Cases", () => {
   it("[REG-REALTOR-001] should register as a realtor when the checkbox is checked and display a welcome message", () => {
     RegisterPage.checkRegisterRealtor();
     RegisterPage.fillRegistrationForm(firstName, lastName, email, password);
+    RegisterPage.clickRegisterButton();
     RegisterPage.assertWelcomeMessageIsDisplayed();
   });
 

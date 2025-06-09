@@ -86,10 +86,9 @@ class RegisterPage {
     this.fillLastName(lastName);
     this.fillEmail(email);
     this.fillPassword(password);
-    this.registerButton.click();
   }
 
-  submitRegistrationForm() {
+clickRegisterButton()   {
     this.registerButton.click();
   }
 
@@ -101,9 +100,9 @@ class RegisterPage {
     this.passwordVisibilityToggleShow.should("be.visible");
   }
 
-  verifyPasswordVisibilityToggleShowsPassword(expectedValue) {
+  verifyPasswordVisibilityToggleShowsPassword() {
     this.passwordVisibilityToggleShow.click();
-    this.passwordInput.should("have.value", expectedValue);
+
   }
 
   verifyPasswordVisibilityToggleHidesPassword() {

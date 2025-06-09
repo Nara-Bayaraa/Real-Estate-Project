@@ -2,22 +2,24 @@ import HomePage from "../../../support/page-objects/home.page";
 import FeaturedListingsPage from "../../../support/page-objects/featured-listings.page";
 
 describe("Home Page: Property Search Functionality", () => {
+
   let searchFormData;
   let validationDetails;
 
+  before(() => {
+    cy.fixture("search-form-data.json").then((data) => {
+      searchFormData = data;
+    });
+    cy.fixture("validation-property-details.json").then((data) => {
+      validationDetails = data;
+    });
+  });
+  
   beforeEach(() => {
     cy.visit("/");
     cy.errorHandler();
-
-  cy.fixture("search-form-data.json").then((data) => {
-    searchFormData = data;
   });
 
-  cy.fixture("validation-property-details.json").then((data) => {
-    validationDetails = data;
-  });
-  });
-  
   it("[HOME-001] should display search results matching the entered keyword", () => {
     HomePage.searchKeyword(
       searchFormData.homePageSearchFormData.searchByKeyword
