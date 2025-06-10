@@ -226,7 +226,7 @@ name: Parallel Test Build
 
 on:
   schedule:
-    - cron: '0 11 * * *'   #run every day at  5:00 AM Chicago time (CST)
+    - cron: '0 11 * * *'  
 
   workflow_dispatch:
   pull_request:
