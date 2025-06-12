@@ -7,7 +7,7 @@ The Real Estate Project is an automated testing suite designed to ensure the qua
 It demonstrates expertise in both **UI (browser-based) and API (backend)** testing using Cypress and JavaScript.
 
 By separating UI and API tests, this project showcases the ability to validate both the frontend user experience and backend data integrity.
-The framework was developed under the Page Object Model Design Pattern, where Page Elements and Actions are organized under pages, aiming to enhance code reusability. Additionally, the following features have been optimized for better reusability and code readability:
+
 
 ---
 
