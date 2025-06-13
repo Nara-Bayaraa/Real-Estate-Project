@@ -1,57 +1,45 @@
 ---
+
 # 🏠 Real Estate Project – Cypress Automated Testing Suite
 
-## 🖥️ Project Description
+## 🖥️ Overview
 
-The Real Estate Project is an automated testing suite designed to ensure the quality and reliability of a real estate web application.
-It demonstrates expertise in both **UI (browser-based) and API (backend)** testing using Cypress and JavaScript.
+This project is an advanced automated testing suite for a real estate web application, demonstrating full-stack quality assurance through both **UI (browser-based)** and **API (backend)** testing with **Cypress** and **JavaScript**.
 
-By separating UI and API tests, this project showcases the ability to validate both the frontend user experience and backend data integrity.
-
+The framework is built with the **Page Object Model (POM)** for maintainable, reusable, and scalable test automation. Tests are separated for UI and API, proving coverage for both user experience and backend logic.
 
 ---
 
-## ⚙️ Features
+## ⚡ Features
 
-* **Cypress E2E UI Testing:**
-  Automated, browser-based user flows for login, property listings, dashboard, registration, etc.
-* **API Testing:**
-  Standalone backend validation (CRUD for listings, users, search, etc.) using Cypress’s built-in API commands.
-* **Modular Page Objects:**
-  Reusable selectors and methods to keep UI tests DRY and organized.
-* **Parallel Test Execution:**
-  Run tests in parallel using `cypress-parallel` for fast feedback and scalable pipelines.
-* **Automated Reporting:**
-  Rich HTML test reports generated with Mochawesome.
-* **GitHub Actions CI/CD:**
-  Modern pipeline support with parallel execution and dependency caching.
-
+* **E2E UI Testing:** Automated browser flows for login, registration, property listings, dashboards, and more.
+* **API Testing:** Backend CRUD validation for listings, users, and search using Cypress's API commands.
+* **Modular Page Objects:** Clean, DRY code via reusable selectors and methods.
+* **Parallel Test Execution:** Fast, scalable runs using `cypress-parallel`.
+* **Automated Reporting:** Beautiful HTML reports with Mochawesome.
+* **CI/CD with GitHub Actions:** Modern pipelines, nightly runs, and dependency caching.
 
 ---
 
-## 🕒 Automated CI Schedule
+## ⏰ Automated CI/CD Schedule
 
-```bash
+* **Nightly runs:**
+  Tests are **automatically executed every day at 5:00 AM CST** via [GitHub Actions scheduled workflow](https://crontab.guru/#0_11_*_*_*).
+* **Purpose:**
+  Ensures daily, automated health checks for the application—no need to run tests manually. Reports and logs are stored as workflow artifacts.
+
+**Cron Example:**
+
+```yaml
 schedule:
-    - cron: '0 11 * * *'   #run every day at  5:00 AM Chicago time (CST)
+  - cron: '0 11 * * *'   # 5:00 AM Chicago time (CST)
 ```
-
-- **Nightly runs:**  
-  This project’s test suite is **automatically triggered every day at 5:00 AM Chicago time (CST)** via a scheduled GitHub Actions workflow.
-
-- **Configuration:**  
-  The schedule is managed using this [cron expression](https://crontab.guru/#0_11_*_*_*):
-
-- **Purpose:**  
-Purpose:
-Automatically checks test health and coverage daily, so you don’t have to run tests manually.
-All test results and reports are generated and can be accessed in the GitHub Actions workflow logs and artifacts.
 
 ---
 
 ## 🛠️ Tech Stack
 
-* **Cypress** (UI and API testing)
+* **Cypress** (UI & API automation)
 * **JavaScript** (CommonJS)
 * **Node.js**
 * **Page Object Model (POM)**
@@ -60,53 +48,39 @@ All test results and reports are generated and can be accessed in the GitHub Act
 
 ---
 
-## 🔧 Installation
+## 📦 Installation
 
-1. Clone the repository:
-```bash
-git clone https://github.com/Nara-Bayaraa/real-estate-project.git
-cd real-estate-project
-```
-2. Install project dependencies: Ensure you have Node.js installed, then install the necessary libraries:
-```bash
-npm install
-```
-3. Run the tests: To execute all Cypress tests:
-```bash
-npx cypress open
-```
-
----
-
-## 🔧 Installation
-
-1. **Clone the repository:**
+1. **Clone the repository**
 
    ```bash
    git clone https://github.com/Nara-Bayaraa/real-estate-project.git
    cd real-estate-project
    ```
-2. **Install dependencies:**
-   Ensure you have Node.js installed, then run:
+2. **Install dependencies** (requires Node.js):
 
    ```bash
    npm install
    ```
-3. **Run all tests in Cypress UI:**
 
-   ```bash
-   npm run cy:open
-   ```
-4. **Run all tests in headless mode (terminal):**
+---
 
-   ```bash
-   npm run cy:run
-   ```
-5. **Run all tests in parallel (fastest, uses all CPU cores):**
+## 🚀 Running Tests
 
-   ```bash
-   npm run cy:parallel
-   ```
+* **Open Cypress GUI:**
+
+  ```bash
+  npm run cy:open
+  ```
+* **Run all tests (headless):**
+
+  ```bash
+  npm run cy:run
+  ```
+* **Run in parallel (fastest):**
+
+  ```bash
+  npm run cy:parallel
+  ```
 
 ---
 
@@ -115,60 +89,24 @@ npx cypress open
 ```
 real-estate-project/
   ├── cypress/
-  │   ├── e2e/                         # All Cypress test specs
-  │   │   ├── api/
-  │   │   │   ├── listings/            # API tests for property listings (CRUD)
-  │   │   │   └── users/               # API tests for users (if any)
-  │   │   └── ui/
-  │   │       ├── dashboard/           # Dashboard-related UI tests
-  │   │       ├── featured-listings/   # Featured listings UI tests
-  │   │       ├── home/                # Homepage UI tests
-  │   │       ├── listings/            # Listings-related UI tests
-  │   │       ├── login/               # Login and logout UI tests
-  │   │       ├── property-listing/    # Property details and actions
-  │   │       └── register/            # Registration UI tests
-  │   ├── fixtures/                    # Test data (JSON)
-  │   │   └── images/                  # Image files or image fixtures
-  │   ├── reports/                     # Generated test reports (Mochawesome)
-  │   ├── screenshots/                 # Cypress screenshots for test failures
-  │   └── support/
-  │       ├── helpers/                 # Helper utility JS files (e.g., data generators)
-  │       ├── page-objects/            # Page Object Model files for each page/module
-  │       ├── commands.js              # Custom Cypress commands
-  │       └── e2e.js                   # Common Cypress utilities
-  ├── .github/workflows/               # GitHub Actions workflow YAMLs
-  ├── .gitignore
-  ├── cypress.config.js
-  ├── package-lock.json
+  │   ├── e2e/
+  │   │   ├── api/           # API test specs
+  │   │   └── ui/            # UI test specs
+  │   ├── fixtures/          # Test data (JSON, images)
+  │   ├── reports/           # Mochawesome reports
+  │   ├── screenshots/       # Failure screenshots
+  │   └── support/           # Helpers, page objects, custom commands
+  ├── .github/workflows/     # GitHub Actions CI
   ├── package.json
-  ├── README.md
+  ├── cypress.config.js
+  └── README.md
 ```
-
----
-
-## 🚀 How to Run
-
-* **All tests (headless, terminal):**
-
-  ```bash
-  npm run cy:run
-  ```
-* **All UI and API tests in parallel (fastest):**
-
-  ```bash
-  npm run cy:parallel
-  ```
-* **Open Cypress Test Runner (GUI):**
-
-  ```bash
-  npm run cy:open
-  ```
 
 ---
 
 ## 📊 Reporting
 
-* **Merge test reports:**
+* **Merge reports:**
 
   ```bash
   npm run merge:reports
@@ -178,7 +116,7 @@ real-estate-project/
   ```bash
   npm run generate:report
   ```
-* **Serve the HTML report locally:**
+* **View report locally:**
 
   ```bash
   npx serve cypress/reports/html
@@ -186,13 +124,13 @@ real-estate-project/
 
 ---
 
-## ✅ Key NPM Scripts
+## 📝 NPM Scripts
 
 ```json
 "scripts": {
   "cy:open": "cypress open",
   "cy:run": "cypress run --browser chrome",
-  "cy:parallel": "cypress-parallel -s cy:run -t 5 -d 'cypress/e2e/**/*.cy.js' -e '**/*.DS_Store'",
+  "cy:parallel": "cypress-parallel -s cy:run -t 5 -d 'cypress/e2e/**/*.cy.js'",
   "clean:reports": "rm -rf cypress/reports",
   "pretest": "npm run clean:reports",
   "merge:reports": "mochawesome-merge cypress/reports/mochawesome/*.json > cypress/reports/mochawesome.json",
@@ -203,20 +141,19 @@ real-estate-project/
 
 ---
 
-## 🔄 Continuous Integration
+## 🔄 CI/CD Pipeline Example
 
-This project uses **GitHub Actions** for CI/CD.
-The parallel workflow speeds up testing by running all Cypress specs in parallel on every push and PR.
+This project leverages **GitHub Actions** for automated builds, parallel test execution, and publishing test artifacts.
 
-**Workflow example:**
+<details>
+<summary>Click to expand sample workflow</summary>
 
 ```yaml
 name: Parallel Test Build
 
 on:
   schedule:
-    - cron: '0 11 * * *'  
-
+    - cron: '0 11 * * *'
   workflow_dispatch:
   pull_request:
     types: [opened, reopened, edited, synchronize]
@@ -229,13 +166,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4.2.0
-        
-     
-      - name: Set up Node.js 20.x
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "20.x"
-
       - name: Cache npm dependencies
         uses: actions/cache@v4
         with:
@@ -243,19 +177,14 @@ jobs:
           key: ${{ runner.os }}-npm-cache-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-npm-cache-
-
       - name: Install dependencies
         run: npm ci
-
       - name: Run Cypress E2E tests in parallel
         run: npm run cy:parallel
-
       - name: Merge Mochawesome Reports
         run: npm run merge:reports
-
       - name: Generate HTML Report
         run: npm run generate:report
-
       - name: Upload HTML Report Artifact
         uses: actions/upload-artifact@v4
         with:
@@ -263,29 +192,35 @@ jobs:
           path: reports/html/
 ```
 
----
-
-## 📢 Contributing
-
-1. Fork the repository
-2. Create a branch: `git checkout -b feature/your-feature`
-3. Commit your changes: `git commit -m "Add: feature or fix description"`
-4. Open a Pull Request against the main branch for review.
+</details>
 
 ---
+
+## 🤝 Contributing
+
+1. Fork the repository.
+2. Create a feature branch:
+   `git checkout -b feature/your-feature`
+3. Commit changes:
+   `git commit -m "Add: feature or fix description"`
+4. Push and open a Pull Request.
+
+---
+
 ## 📄 License
 
-MIT License
+[MIT License](./LICENSE)
 
 ---
 
-## 📝 Future Enhancements
+## 🌱 Roadmap / Future Enhancements
 
 * Add visual regression and accessibility tests
-* Expand negative and edge case scenarios
-* Multi-browser cross-platform test execution
+* Expand edge/negative case coverage
+* Multi-browser and cross-platform support
 
 ---
 
-Happy testing! 🚀
+**Happy testing! 🚀**
+
 ---
