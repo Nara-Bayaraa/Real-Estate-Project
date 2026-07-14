@@ -8,24 +8,22 @@ It demonstrates expertise in both **UI (browser-based) and API (backend)** testi
 
 By separating UI and API tests, this project showcases the ability to validate both the frontend user experience and backend data integrity.
 All tests are modular, using the **Page Object Model (POM)** for maintainable and scalable test automation.
-
 ---
 
 ## ⚙️ Features
 
-* **Cypress E2E UI Testing:**
+- **Cypress E2E UI Testing:**
   Automated, browser-based user flows for login, property listings, dashboard, registration, etc.
-* **API Testing:**
+- **API Testing:**
   Standalone backend validation (CRUD for listings, users, search, etc.) using Cypress’s built-in API commands.
-* **Modular Page Objects:**
+- **Modular Page Objects:**
   Reusable selectors and methods to keep UI tests DRY and organized.
-* **Parallel Test Execution:**
+- **Parallel Test Execution:**
   Run tests in parallel using `cypress-parallel` for fast feedback and scalable pipelines.
-* **Automated Reporting:**
+- **Automated Reporting:**
   Rich HTML test reports generated with Mochawesome.
-* **GitHub Actions CI/CD:**
+- **GitHub Actions CI/CD:**
   Modern pipeline support with parallel execution and dependency caching.
-
 
 ---
 
@@ -43,35 +41,40 @@ schedule:
   The schedule is managed using this [cron expression](https://crontab.guru/#0_11_*_*_*):
 
 - **Purpose:**  
-Purpose:
-Automatically checks test health and coverage daily, so you don’t have to run tests manually.
-All test results and reports are generated and can be accessed in the GitHub Actions workflow logs and artifacts.
+  Purpose:
+  Automatically checks test health and coverage daily, so you don’t have to run tests manually.
+  All test results and reports are generated and can be accessed in the GitHub Actions workflow logs and artifacts.
 
 ---
 
 ## 🛠️ Tech Stack
 
-* **Cypress** (UI and API testing)
-* **JavaScript** (CommonJS)
-* **Node.js**
-* **Page Object Model (POM)**
-* **Mochawesome** (reporting)
-* **GitHub Actions** (CI/CD)
+- **Cypress** (UI and API testing)
+- **JavaScript** (CommonJS)
+- **Node.js**
+- **Page Object Model (POM)**
+- **Mochawesome** (reporting)
+- **GitHub Actions** (CI/CD)
 
 ---
 
 ## 🔧 Installation
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/Nara-Bayaraa/real-estate-project.git
 cd real-estate-project
 ```
+
 2. Install project dependencies: Ensure you have Node.js installed, then install the necessary libraries:
+
 ```bash
 npm install
 ```
+
 3. Run the tests: To execute all Cypress tests:
+
 ```bash
 npx cypress open
 ```
@@ -80,12 +83,12 @@ npx cypress open
 
 ## 🛠️ Tech Stack
 
-* **Cypress** (UI and API testing)
-* **JavaScript** (CommonJS)
-* **Node.js**
-* **Page Object Model (POM)**
-* **Mochawesome** (reporting)
-* **GitHub Actions** (CI/CD)
+- **Cypress** (UI and API testing)
+- **JavaScript** (CommonJS)
+- **Node.js**
+- **Page Object Model (POM)**
+- **Mochawesome** (reporting)
+- **GitHub Actions** (CI/CD)
 
 ---
 
@@ -97,22 +100,26 @@ npx cypress open
    git clone https://github.com/Nara-Bayaraa/real-estate-project.git
    cd real-estate-project
    ```
+
 2. **Install dependencies:**
    Ensure you have Node.js installed, then run:
 
    ```bash
    npm install
    ```
+
 3. **Run all tests in Cypress UI:**
 
    ```bash
    npm run cy:open
    ```
+
 4. **Run all tests in headless mode (terminal):**
 
    ```bash
    npm run cy:run
    ```
+
 5. **Run all tests in parallel (fastest, uses all CPU cores):**
 
    ```bash
@@ -159,17 +166,19 @@ real-estate-project/
 
 ## 🚀 How to Run
 
-* **All tests (headless, terminal):**
+- **All tests (headless, terminal):**
 
   ```bash
   npm run cy:run
   ```
-* **All UI and API tests in parallel (fastest):**
+
+- **All UI and API tests in parallel (fastest):**
 
   ```bash
   npm run cy:parallel
   ```
-* **Open Cypress Test Runner (GUI):**
+
+- **Open Cypress Test Runner (GUI):**
 
   ```bash
   npm run cy:open
@@ -179,17 +188,19 @@ real-estate-project/
 
 ## 📊 Reporting
 
-* **Merge test reports:**
+- **Merge test reports:**
 
   ```bash
   npm run merge:reports
   ```
-* **Generate HTML report:**
+
+- **Generate HTML report:**
 
   ```bash
   npm run generate:report
   ```
-* **Serve the HTML report locally:**
+
+- **Serve the HTML report locally:**
 
   ```bash
   npx serve cypress/reports/html
@@ -226,7 +237,7 @@ name: Parallel Test Build
 
 on:
   schedule:
-    - cron: '0 11 * * *'   #run every day at  5:00 AM Chicago time (CST)
+    - cron: "0 11 * * *" #run every day at  5:00 AM Chicago time (CST)
 
   workflow_dispatch:
   pull_request:
@@ -240,8 +251,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4.2.0
-        
-     
+
       - name: Set up Node.js 20.x
         uses: actions/setup-node@v4
         with:
@@ -284,6 +294,7 @@ jobs:
 4. Open a Pull Request against the main branch for review.
 
 ---
+
 ## 📄 License
 
 MIT License
@@ -292,11 +303,10 @@ MIT License
 
 ## 📝 Future Enhancements
 
-* Add visual regression and accessibility tests
-* Expand negative and edge case scenarios
-* Multi-browser cross-platform test execution
+- Add visual regression and accessibility tests
+- Expand negative and edge case scenarios
+- Multi-browser cross-platform test execution
 
 ---
 
-Happy testing! 🚀
----
+## Happy testing! 🚀
