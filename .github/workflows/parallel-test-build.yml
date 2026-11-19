@@ -1,6 +1,5 @@
 name: Real - Estate Parallel Test Build
 
-on:
  on:
   workflow_dispatch:
   # start a run manually from the Actions tab
