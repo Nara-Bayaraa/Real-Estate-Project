@@ -16,3 +16,4 @@ cypress/parallel-weights.json
 
 runner-results/
 multi-reporter-config.json 
+reports/

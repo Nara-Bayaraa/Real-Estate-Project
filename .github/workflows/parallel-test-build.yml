@@ -1,13 +1,15 @@
 name: Real - Estate Parallel Test Build
 
 on:
-  schedule:
-    - cron: '0 11 * * *'   #run every day at  5:00 AM Chicago time (CST)
+ on:
   workflow_dispatch:
+  # start a run manually from the Actions tab
   pull_request:
     types: [opened, reopened, edited, synchronize]
+  # runs on every PR event
   push:
     branches: [main]
+  # runs on every push to main
 
 jobs:
   cypress-parallel-e2e:
@@ -15,8 +17,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4.2.0
-        
-     
+
       - name: Set up Node.js 20.x
         uses: actions/setup-node@v4
         with:
@@ -34,6 +35,15 @@ jobs:
         run: npm ci
 
       - name: Run Cypress E2E tests in parallel
+        env:
+          USER_EMAIL: ${{ secrets.USER_EMAIL }}
+          # USER_EMAIL holds the regular user email from the GitHub secret
+          USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
+          # USER_PASSWORD holds the regular user password from the GitHub secret
+          REALTOR_EMAIL: ${{ secrets.REALTOR_EMAIL }}
+          # REALTOR_EMAIL holds the realtor email from the GitHub secret
+          REALTOR_PASSWORD: ${{ secrets.REALTOR_PASSWORD }}
+          # REALTOR_PASSWORD holds the realtor password from the GitHub secret
         run: npm run cy:parallel
 
       - name: Merge Mochawesome Reports

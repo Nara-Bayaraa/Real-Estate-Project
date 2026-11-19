@@ -5,7 +5,6 @@ describe("Dashboard Profile Page: Theme Toggle & User Info Verification", () => 
   beforeEach(() => {
     cy.userLogin();
     cy.visit("/dashboard/user/profile");
-    cy.fixture("userCredentials.json").as("userCredential");
   });
 
   it("[DASH-PROFILE-001] Should switch to dark theme when the toggle is clicked", () => {
@@ -27,8 +26,9 @@ describe("Dashboard Profile Page: Theme Toggle & User Info Verification", () => 
     DashboardPage.verifyUserFullNameIsDisplayed();
   });
 
-  it("[DASH-PROFILE-005] Should display the correct user role on Profile page", function () {
-    DashboardPage.verifyRole(this.userCredential.userData.role);
+  it("[DASH-PROFILE-005] Should display the correct user role on Profile page", () => {
+    DashboardPage.verifyRole("user");
+    // "user" is the role of the USER_EMAIL account that cy.userLogin() logs in with
   });
 
   it("[DASH-PROFILE-006] Should display the Management label in the sidebar", () => {

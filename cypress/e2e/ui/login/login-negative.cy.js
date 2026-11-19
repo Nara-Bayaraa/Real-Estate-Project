@@ -1,22 +1,24 @@
 import LoginPage from "../../../support/page-objects/login.page.js";
 
 describe("Login Functionality: Negative Test Cases", () => {
-  
   let errorMessage;
   let invalidEmail;
   let invalidPassword;
-  let validEmail;
-  let validPassword;
+  const validEmail = Cypress.env("userEmail");
+  // validEmail holds USER_EMAIL from .env
+  const validPassword = Cypress.env("userPassword");
+  // validPassword holds USER_PASSWORD from .env
 
   before(() => {
     cy.fixture("validation-messages.json").then((data) => {
       errorMessage = data.login;
+      // errorMessage holds the login error texts from validation-messages.json
     });
     cy.fixture("userCredentials.json").then((data) => {
       invalidEmail = data.invalidLoginData.email;
+      // invalidEmail holds the fake "wrongexample.com" from the fixture
       invalidPassword = data.invalidLoginData.password;
-      validEmail = data.validLoginData.email;
-      validPassword = data.validLoginData.password;
+      // invalidPassword holds the fake "WrongPassword123" from the fixture
     });
   });
 

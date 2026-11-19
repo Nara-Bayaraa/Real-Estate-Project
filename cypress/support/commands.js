@@ -1,27 +1,30 @@
 import HeaderComponentPage from "./page-objects/header-component.page";
+
 // Error handler
 Cypress.Commands.add("errorHandler", () => {
   Cypress.on("uncaught:exception", (err, runnable) => {
     return false;
   });
 });
+
 //Toggle Theme
 Cypress.Commands.add("enableDarkTheme", () => {
   HeaderComponentPage.toggleTheme();
 });
+
 // UI-Login-User
 Cypress.Commands.add("login", (email, password, url = "/login") => {
-  cy.visit(url); 
+  cy.visit(url);
   cy.get('[name="email"]').type(email);
   cy.get('[name="password"]').type(password);
   cy.get('[type="submit"]').click();
 });
 
-
 //Api-Login-User
 Cypress.Commands.add(
   "userLogin",
-  (email = "pimig93664@pricegh.com", password = "DontTestMe") => {
+  (email = Cypress.env("userEmail"), password = Cypress.env("userPassword")) => {
+    // email holds USER_EMAIL from .env, password holds USER_PASSWORD from .env
     cy.api({
       method: "POST",
       url: "/api/users/login",
@@ -30,10 +33,12 @@ Cypress.Commands.add(
         password,
       },
     }).then((response) => {
+      // response.body.accessToken holds the login token the API returned
       window.localStorage.setItem("accessToken", response.body.accessToken);
     });
   }
 );
+
 //Api-Login-Realtor
 Cypress.Commands.add("realtorLogin", () => {
   cy.api({
@@ -49,7 +54,7 @@ Cypress.Commands.add("realtorLogin", () => {
   });
 });
 
-//CREATE
+//Create Listing
 Cypress.Commands.add("createListing", ({ listingData, imagePath }) => {
   cy.fixture(imagePath, "binary").then((image) => {
     const blob = Cypress.Blob.binaryStringToBlob(image);
@@ -77,7 +82,7 @@ Cypress.Commands.add("createListing", ({ listingData, imagePath }) => {
   });
 });
 
-//GET
+//Get Listing
 Cypress.Commands.add(
   "verifyListingDetails",
   (fixturePath, idPath, listingData) => {
@@ -95,7 +100,8 @@ Cypress.Commands.add(
     });
   }
 );
-// PUT
+
+// Put/Update Listing
 Cypress.Commands.add("updateListing", (listingId, updatedData) => {
   const bearerToken = `Bearer ${localStorage.getItem("accessToken") || ""}`;
   return cy.api({
@@ -108,7 +114,7 @@ Cypress.Commands.add("updateListing", (listingId, updatedData) => {
   });
 });
 
-//DELETE
+//Delete Listing
 Cypress.Commands.add("deleteListing", (listingId) => {
   const bearerToken = `Bearer ${localStorage.getItem("accessToken") || ""}`;
   cy.api({

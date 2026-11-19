@@ -4,16 +4,16 @@ import {firstName, lastName, email, password,} from "../../../support/helpers/ge
 describe("Register Page: User Negative Test Cases", () => {
 
   let errorMessage;
-  let existingEmail;
+  const existingEmail = Cypress.env("userEmail");
+  // existingEmail holds USER_EMAIL from .env, an account that is already registered
 
   before(() => {
     cy.fixture("validation-messages.json").then((data) => {
       errorMessage = data.registration;
-    });
-    cy.fixture("userCredentials.json").then((data) => {
-      existingEmail = data.validLoginData.email;
+      // errorMessage holds the registration error texts from validation-messages.json
     });
   });
+  
   beforeEach(() => {
     cy.visit("auth/register");
   });
