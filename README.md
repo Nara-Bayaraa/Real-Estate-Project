@@ -17,7 +17,9 @@ UI tests use the **Page Object Model (POM)** for maintainable, reusable test cod
 - **Cypress E2E UI Testing:**
   Browser-based user flows for login/logout, registration, home search, featured listings, property details, and the dashboard profile.
 - **API Testing:**
-  Listing CRUD (create, get, delete) and listing search filters using Cypress API commands and `cypress-plugin-api`.
+  Listing CRUD (create, get, delete) using Cypress API commands and `cypress-plugin-api`.
+- **API-Seeded UI Tests:**
+  A `before` hook creates a listing through the API, so the home search tests check a known record instead of whatever data is on the site.
 - **Modular Page Objects:**
   Reusable selectors and methods to keep UI tests DRY and organized.
 - **Secure Test Credentials:**
@@ -43,12 +45,11 @@ UI tests use the **Page Object Model (POM)** for maintainable, reusable test cod
 | ----------------------------- | ---- | ----------------------- | ------------- |
 | Login / Logout                | UI   | `ui/login/`             | 5             |
 | Registration (User + Realtor) | UI   | `ui/register/`          | 12            |
-| Home Page Search              | UI   | `ui/home/`              | 4             |
+| Home Page Search              | UI   | `ui/home/`              | 9             |
 | Featured Listings             | UI   | `ui/featured-listings/` | 3 (1 skipped) |
 | Property Details              | UI   | `ui/property-listing/`  | 2             |
 | Dashboard Profile             | UI   | `ui/dashboard/`         | 7             |
 | Listings CRUD                 | API  | `api/listings/`         | 4             |
-| Listing Search Filters        | API  | `api/listing-search/`   | 5             |
 | **Total**                     |      | **16 spec files**       | **42**        |
 
 ---
@@ -133,12 +134,11 @@ real-estate-project/
   ├── cypress/
   │   ├── e2e/                         # All Cypress test specs
   │   │   ├── api/
-  │   │   │   ├── listing-search/      # API tests for listing search filters
   │   │   │   └── listings/            # API tests for listings (create, get, delete)
   │   │   └── ui/
   │   │       ├── dashboard/           # Dashboard profile UI tests
   │   │       ├── featured-listings/   # Featured listings search and favorites
-  │   │       ├── home/                # Homepage search UI tests
+  │   │       ├── home/                # Homepage search UI tests (incl. API-seeded)
   │   │       ├── login/               # Login and logout UI tests
   │   │       ├── property-listing/    # Property details and inquiry form
   │   │       └── register/            # User and realtor registration UI tests

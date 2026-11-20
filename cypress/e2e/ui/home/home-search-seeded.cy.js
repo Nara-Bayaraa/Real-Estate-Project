@@ -3,14 +3,11 @@ import StateAbbreviations from "../../../support/helpers/state-abbreviations";
 import FeaturedListingsPage from "../../../support/page-objects/featured-listings.page";
 import HomePage from "../../../support/page-objects/home.page";
 
-describe("End-to-End: property listing creation , search created property , and delete created property listing  by ID via API", () => {
+describe("Home Page: Property Search with an API-Seeded Listing", () => {
   const image = "images/luxuryApartment.png";
+  // image holds the fixture image uploaded with the seeded listing
   let createdListingId;
-
-  beforeEach(() => {
-    cy.visit("https://dev.delekhomes.com/");
-    cy.errorHandler();
-  });
+  // createdListingId holds the ID of the listing created in before()
 
   before(() => {
     cy.createListing({
@@ -21,34 +18,40 @@ describe("End-to-End: property listing creation , search created property , and 
     });
   });
 
-  it("[API-SEARCH-001] should display search results matching the entered keyword", () => {
+  beforeEach(() => {
+    cy.visit("/");
+    cy.errorHandler();
+  });
+
+  it("[HOME-005] should display search results matching the entered keyword", () => {
     HomePage.searchKeyword(ListingData.newRealEstateAPI.title);
     FeaturedListingsPage.verifyAllResultsIncludeKeyword(
       ListingData.newRealEstateAPI.title,
     );
   });
 
-  it("[API-SEARCH-002] should filter and display listings based on selected bedroom count", () => {
+  it("[HOME-006] should filter and display listings based on selected bedroom count", () => {
     HomePage.searchBedroom(ListingData.newRealEstateAPI.bedrooms);
     FeaturedListingsPage.verifyAllResultsIncludeBedroom(
       ListingData.newRealEstateAPI.bedrooms,
     );
   });
 
-  it("[API-SEARCH-003] should display search results matching the entered city", () => {
+  it("[HOME-007] should display search results matching the entered city", () => {
     HomePage.searchCity(ListingData.newRealEstateAPI.city);
     FeaturedListingsPage.verifyAllResultsIncludeCity(
       ListingData.newRealEstateAPI.city,
     );
   });
 
-  it("[API-SEARCH-004] Should filter and display listings based on selected state", () => {
+  it("[HOME-008] should filter and display listings based on selected state", () => {
     HomePage.searchState(ListingData.newRealEstateAPI.state);
     const fullState = ListingData.newRealEstateAPI.state; // "California"
     const abbrState = StateAbbreviations[fullState]; //"CA"
     FeaturedListingsPage.verifyAllResultsIncludeState([fullState, abbrState]);
   });
-  it("[API-SEARCH-005] should search using all filters together", () => {
+
+  it("[HOME-009] should search using all filters together", () => {
     HomePage.fillHomeSearchForm({
       keyword: ListingData.newRealEstateAPI.title,
       bedrooms: ListingData.newRealEstateAPI.bedrooms,
