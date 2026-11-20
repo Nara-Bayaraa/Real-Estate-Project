@@ -22,7 +22,7 @@ describe("Register Page: Realtor Negative Test Cases", () => {
     cy.visit("auth/register");
   });
 
-  it("[REG-REALTOR-001] Should display error when attempting to register with an already registered email", () => {
+  it("[REG-REALTOR-003] Should display error when attempting to register with an already registered email", () => {
     RegisterPage.checkRegisterRealtor();
     // ticks the "register as realtor" checkbox, so this is a real realtor attempt
     RegisterPage.fillRegistrationForm(

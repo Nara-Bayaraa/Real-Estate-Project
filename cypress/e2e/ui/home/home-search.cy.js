@@ -1,8 +1,7 @@
-import HomePage from "../../../support/page-objects/home.page";
 import FeaturedListingsPage from "../../../support/page-objects/featured-listings.page";
+import HomePage from "../../../support/page-objects/home.page";
 
 describe("Home Page: Property Search Functionality", () => {
-
   let searchFormData;
   let validationDetails;
 
@@ -14,7 +13,7 @@ describe("Home Page: Property Search Functionality", () => {
       validationDetails = data;
     });
   });
-  
+
   beforeEach(() => {
     cy.visit("/");
     cy.errorHandler();
@@ -22,19 +21,19 @@ describe("Home Page: Property Search Functionality", () => {
 
   it("[HOME-001] should display search results matching the entered keyword", () => {
     HomePage.searchKeyword(
-      searchFormData.homePageSearchFormData.searchByKeyword
+      searchFormData.homePageSearchFormData.searchByKeyword,
     );
     FeaturedListingsPage.verifyAllResultsIncludeKeyword(
-      validationDetails.expecteHomeSearchdResults.byKeyword
+      validationDetails.expecteHomeSearchdResults.byKeyword,
     );
   });
 
   it("[HOME-002] should filter and display listings based on selected number of bedrooms", () => {
     HomePage.searchBedroom(
-      searchFormData.homePageSearchFormData.searchByBedrooms
+      searchFormData.homePageSearchFormData.searchByBedrooms,
     );
     FeaturedListingsPage.verifyAllResultsIncludeBedroom(
-      validationDetails.expecteHomeSearchdResults.byBedroom
+      validationDetails.expecteHomeSearchdResults.byBedroom,
     );
   });
 
@@ -42,10 +41,10 @@ describe("Home Page: Property Search Functionality", () => {
     FeaturedListingsPage.verifyResultsIncludePriceRange();
   });
 
-  it("[HOME-005] should display listings based on the selected state", () => {
+  it("[HOME-004] should display listings based on the selected state", () => {
     HomePage.searchState(searchFormData.homePageSearchFormData.searchByState);
     FeaturedListingsPage.verifyAllResultsIncludeState(
-      validationDetails.expecteHomeSearchdResults.byState
+      validationDetails.expecteHomeSearchdResults.byState,
     );
   });
 });

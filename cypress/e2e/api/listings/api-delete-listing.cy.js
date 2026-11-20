@@ -1,18 +1,18 @@
-describe('Delete Property Listing via API', () => {
-const listingIds = [19977];
+describe("Delete Property Listing via API", () => {
+  const listingIds = [19977];
 
-it("should delete multiple listings individually", () => {
-  const bearerToken = `Bearer ${localStorage.getItem("accessToken") || ""}`;
-  listingIds.forEach((listingId) => {
-    cy.api({
-      method: "DELETE",
-      url: `/api/estate-objects/${listingId}`,
-      headers: {
-        Authorization: bearerToken,
-      },
-    }).then((response) => {
-      expect(response.status).to.eq(200); 
+  it("[API-LISTING-004] should delete multiple listings individually", () => {
+    const bearerToken = `Bearer ${localStorage.getItem("accessToken") || ""}`;
+    listingIds.forEach((listingId) => {
+      cy.api({
+        method: "DELETE",
+        url: `/api/estate-objects/${listingId}`,
+        headers: {
+          Authorization: bearerToken,
+        },
+      }).then((response) => {
+        expect(response.status).to.eq(200);
+      });
     });
   });
-});
 });

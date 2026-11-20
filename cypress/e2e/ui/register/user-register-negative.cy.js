@@ -1,8 +1,12 @@
+import {
+  email,
+  firstName,
+  lastName,
+  password,
+} from "../../../support/helpers/generate-user.js";
 import RegisterPage from "../../../support/page-objects/register.page.js";
-import {firstName, lastName, email, password,} from "../../../support/helpers/generate-user.js";
 
 describe("Register Page: User Negative Test Cases", () => {
-
   let errorMessage;
   const existingEmail = Cypress.env("userEmail");
   // existingEmail holds USER_EMAIL from .env, an account that is already registered
@@ -13,36 +17,36 @@ describe("Register Page: User Negative Test Cases", () => {
       // errorMessage holds the registration error texts from validation-messages.json
     });
   });
-  
+
   beforeEach(() => {
     cy.visit("auth/register");
   });
 
-  it("[REG-USER-001] should display error when First Name field is empty", () => {
+  it("[REG-USER-004] should display error when First Name field is empty", () => {
     RegisterPage.fillRegistrationForm("", lastName, email, password);
     RegisterPage.clickRegisterButton();
     RegisterPage.assertErrorMessageVisible(errorMessage.FIRSTNAME_REQUIRED);
   });
 
-  it("[REG-USER-002] should display error when Last Name field is empty", () => {
+  it("[REG-USER-005] should display error when Last Name field is empty", () => {
     RegisterPage.fillRegistrationForm(firstName, "", email, password);
     RegisterPage.clickRegisterButton();
     RegisterPage.assertErrorMessageVisible(errorMessage.LASTNAME_REQUIRED);
   });
 
-  it("[REG-USER-003] should display error when Email field is empty", () => {
+  it("[REG-USER-006] should display error when Email field is empty", () => {
     RegisterPage.fillRegistrationForm(firstName, lastName, "", password);
     RegisterPage.clickRegisterButton();
     RegisterPage.assertErrorMessageVisible(errorMessage.EMAIL_REQUIRED);
   });
 
-  it("[REG-USER-004] should display error when Password field is empty", () => {
+  it("[REG-USER-007] should display error when Password field is empty", () => {
     RegisterPage.fillRegistrationForm(firstName, lastName, email, "");
     RegisterPage.clickRegisterButton();
     RegisterPage.assertErrorMessageVisible(errorMessage.PASSWORD_REQUIRED);
   });
 
-  it("[REG-USER-005] should display errors for all fields when submitting an empty form", () => {
+  it("[REG-USER-008] should display errors for all fields when submitting an empty form", () => {
     RegisterPage.fillRegistrationForm("", "", "", "");
     RegisterPage.clickRegisterButton();
     const requiredFields = [
@@ -56,16 +60,16 @@ describe("Register Page: User Negative Test Cases", () => {
     });
   });
 
-  it("[REG-USER-006] should display error when registering with an already registered email", () => {
+  it("[REG-USER-009] should display error when registering with an already registered email", () => {
     RegisterPage.fillRegistrationForm(
       firstName,
       lastName,
       existingEmail,
-      password
+      password,
     );
     RegisterPage.clickRegisterButton();
     RegisterPage.assertInputErrorMessageIsDisplayed(
-      errorMessage.INPUT_DATA_FAILED
+      errorMessage.INPUT_DATA_FAILED,
     );
   });
 });
