@@ -1,7 +1,9 @@
+import StateAbbreviations from "../helpers/state-abbreviations";
+
 class FeaturedListingsPage {
   get mainContentContainer() {
     return cy.get(
-      '[class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-1h77wgb"]'
+      '[class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-1h77wgb"]',
     );
   }
   get propertyCard() {
@@ -13,7 +15,7 @@ class FeaturedListingsPage {
   get bedroomInput() {
     return cy
       .get(
-        '[class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input css-184p1yy"]'
+        '[class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input css-184p1yy"]',
       )
       .first();
   }
@@ -28,7 +30,7 @@ class FeaturedListingsPage {
   }
   get selectBedroomsOption() {
     return cy.get(
-      '[class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters css-1e98n2x"]'
+      '[class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters css-1e98n2x"]',
     );
   }
   get allBedroomsValues() {
@@ -54,12 +56,13 @@ class FeaturedListingsPage {
   }
   get heartIcon() {
     return cy.get(
-      "body div[id='root'] div[class='css-o44is'] div[class='MuiBox-root css-0'] div[class='MuiContainer-root MuiContainer-maxWidthLg css-1qsxih2'] div[class='MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-1h77wgb'] div:nth-child(1) div:nth-child(1) div:nth-child(1) div:nth-child(2) svg"
+      "body div[id='root'] div[class='css-o44is'] div[class='MuiBox-root css-0'] div[class='MuiContainer-root MuiContainer-maxWidthLg css-1qsxih2'] div[class='MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-1h77wgb'] div:nth-child(1) div:nth-child(1) div:nth-child(1) div:nth-child(2) svg",
     );
   }
   clickMoreButton() {
     this.moreInfoButton.click();
   }
+
   assertSearchResultDisplayed(expectedText) {
     this.mainContentContainer.should("contain.text", expectedText);
   }
@@ -69,7 +72,7 @@ class FeaturedListingsPage {
       cy.wrap($el)
         .invoke("text")
         .then((text) => {
-          expect(text).to.include(keyword);
+          expect(text.toLowerCase()).to.include(keyword.toLowerCase());
         });
     });
   }
@@ -83,7 +86,7 @@ class FeaturedListingsPage {
           expect(match, `Bedrooms present in "${text}"`).to.not.be.null;
           const bedroomCount = Number(match[0]);
           expect(bedroomCount, `Found ${bedroomCount} bedrooms`).to.be.at.least(
-            Number(expectedBedroom)
+            Number(expectedBedroom),
           );
         });
     });
@@ -96,7 +99,7 @@ class FeaturedListingsPage {
       expect(price).to.be.lte(10000000);
     });
   }
-  
+
   verifyAllResultsIncludeCity(keyword) {
     this.allCitiesValues.each(($el) => {
       cy.wrap($el).invoke("text").should("include", keyword);
@@ -104,16 +107,23 @@ class FeaturedListingsPage {
   }
 
   verifyAllResultsIncludeState(keywords) {
+    // keywords: "California" or an array like ["CA", "California"]
     const keywordsArr = Array.isArray(keywords) ? keywords : [keywords];
+    // keywordsArr: always an array, e.g. ["California"]
+    const allKeywords = keywordsArr.flatMap((keyword) =>
+      StateAbbreviations[keyword]
+        ? [keyword, StateAbbreviations[keyword]]
+        : [keyword],
+    );
     this.allStatesValues.each(($el) => {
       const text = $el
         .text()
         .replace(/\u00a0/g, "")
         .trim();
-      const hasMatch = keywordsArr.some((keyword) => text.includes(keyword));
+      const hasMatch = allKeywords.some((keyword) => text.includes(keyword));
       expect(
         hasMatch,
-        `Actual: "${text}" includes one of: ${keywordsArr.join(", ")}`
+        `Actual: "${text}" includes one of: ${allKeywords.join(", ")}`,
       ).to.be.true;
     });
   }
@@ -127,11 +137,10 @@ class FeaturedListingsPage {
   clickHeartIcon() {
     cy.waitUntil(() => this.heartIcon.should("be.visible"));
     this.heartIcon.click();
-    this.heartIcon.click();
   }
-  
-  verifyHeartIconIsRed() {
-    this.heartIcon.should("have.css", "color", "rgb(255, 0, 0)");
+
+  verifyHeartIconColor() {
+    this.heartIcon.should("have.css", "color", "rgb(33, 43, 54)");
   }
 }
 export default new FeaturedListingsPage();

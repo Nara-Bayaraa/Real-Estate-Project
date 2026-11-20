@@ -3,6 +3,8 @@ import HeaderComponentPage from "../../../support/page-objects/header-component.
 
 describe("Dashboard Profile Page: Theme Toggle & User Info Verification", () => {
   beforeEach(() => {
+    cy.errorHandler();
+    // registers the uncaught:exception listener before the page loads
     cy.userLogin();
     cy.visit("/dashboard/user/profile");
   });
