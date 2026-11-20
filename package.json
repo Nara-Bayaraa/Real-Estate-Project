@@ -4,7 +4,7 @@
   "main": "cypress.config.js",
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "description": "Real-Estate project with Cypress API and UI test automation",
   "scripts": {
     "cy:open": "cypress open",
