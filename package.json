@@ -10,7 +10,7 @@
     "cy:open": "cypress open",
     "test:all": "cypress run --browser chrome",
     "cy:run": "cypress run --browser chrome",
-    "cy:parallel": "cypress-parallel -s cy:run -t 5 -d 'cypress/e2e/**/*.cy.js' -e '**/*.DS_Store'",
+    "cy:parallel": "cypress-parallel -s cy:run -t 5 -d 'cypress/e2e/**/*.cy.js' -e '**/*.DS_Store' -r mochawesome -o 'reportDir=reports/mochawesome,charts=true,overwrite=false,html=false,json=true'",
     "clean:reports": "rm -rf reports",
     "pretest": "npm run clean:reports",
     "merge:reports": "mochawesome-merge reports/mochawesome/*.json > reports/mochawesome.json",
