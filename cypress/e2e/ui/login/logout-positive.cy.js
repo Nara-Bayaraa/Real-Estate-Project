@@ -2,6 +2,8 @@ import HeaderComponentPage from "../../../support/page-objects/header-component.
 
 describe("User Logout Functionality - Positive Test Case", () => {
   beforeEach(function () {
+    cy.errorHandler();
+    // registers the uncaught:exception listener before the page loads
     cy.userLogin();
     // saves the accessToken for USER_EMAIL in localStorage, before the page loads
     cy.visit("/dashboard/user/profile");
