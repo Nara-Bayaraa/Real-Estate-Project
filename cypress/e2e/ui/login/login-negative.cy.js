@@ -23,7 +23,7 @@ describe("Login Functionality: Negative Test Cases", () => {
   });
 
   beforeEach(() => {
-    cy.visit("auth/register");
+    cy.visit("auth/login");
   });
 
   it("[LOGIN-002] should display error for invalid email and password format", () => {
@@ -31,7 +31,7 @@ describe("Login Functionality: Negative Test Cases", () => {
     LoginPage.assertErrorMessageVisible(errorMessage.INVALID_EMAIL);
   });
 
-  it("[LOGIN-003] should display error when email filed is empty", () => {
+  it("[LOGIN-003] should display error when email field is empty", () => {
     LoginPage.login("", validPassword);
     LoginPage.assertErrorMessageVisible(errorMessage.EMAIL_REQUIRED);
   });
