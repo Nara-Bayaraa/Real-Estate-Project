@@ -1,3 +1,4 @@
+import { registerCommand } from "cypress-wait-for-stable-dom";
 import HeaderComponentPage from "./page-objects/header-component.page";
 
 // Error handler
@@ -23,7 +24,10 @@ Cypress.Commands.add("login", (email, password, url = "/login") => {
 //Api-Login-User
 Cypress.Commands.add(
   "userLogin",
-  (email = Cypress.env("userEmail"), password = Cypress.env("userPassword")) => {
+  (
+    email = Cypress.env("userEmail"),
+    password = Cypress.env("userPassword"),
+  ) => {
     // email holds USER_EMAIL from .env, password holds USER_PASSWORD from .env
     cy.api({
       method: "POST",
@@ -36,7 +40,7 @@ Cypress.Commands.add(
       // response.body.accessToken holds the login token the API returned
       window.localStorage.setItem("accessToken", response.body.accessToken);
     });
-  }
+  },
 );
 
 //Api-Login-Realtor
@@ -82,25 +86,6 @@ Cypress.Commands.add("createListing", ({ listingData, imagePath }) => {
   });
 });
 
-//Get Listing
-Cypress.Commands.add(
-  "verifyListingDetails",
-  (fixturePath, idPath, listingData) => {
-    cy.fixture(idPath).then(({ createdListingId }) => {
-      const bearerToken = `Bearer ${localStorage.getItem("accessToken") || ""}`;
-      cy.api({
-        method: "GET",
-        url: `/api/estate-objects/${createdListingId}`,
-        headers: {
-          Authorization: bearerToken,
-        },
-      }).then((getResponse) => {
-        getResponse.body.estateObject.city.to.eq(listingData.city);
-      });
-    });
-  }
-);
-
 // Put/Update Listing
 Cypress.Commands.add("updateListing", (listingId, updatedData) => {
   const bearerToken = `Bearer ${localStorage.getItem("accessToken") || ""}`;
@@ -125,5 +110,4 @@ Cypress.Commands.add("deleteListing", (listingId) => {
     },
   });
 });
-import { registerCommand } from "cypress-wait-for-stable-dom";
 registerCommand();

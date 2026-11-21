@@ -3,12 +3,11 @@
   "version": "1.0.0",
   "main": "cypress.config.js",
   "keywords": [],
-  "author": "",
+  "author": "Nara Bayaraa",
   "license": "MIT",
   "description": "Real-Estate project with Cypress API and UI test automation",
   "scripts": {
     "cy:open": "cypress open",
-    "test:all": "cypress run --browser chrome",
     "cy:run": "cypress run --browser chrome",
     "cy:parallel": "cypress-parallel -s cy:run -t 5 -d 'cypress/e2e/**/*.cy.js' -e '**/*.DS_Store' -r mochawesome -o 'reportDir=reports/mochawesome,charts=true,overwrite=false,html=false,json=true'",
     "clean:reports": "rm -rf reports",
