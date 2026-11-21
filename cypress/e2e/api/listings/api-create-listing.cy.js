@@ -1,23 +1,18 @@
 describe("End-to-End: Create and Delete Property Listing via API", () => {
-  let listingId;
-  // listingId holds the ID returned when API-LISTING-001 creates the listing
-
-  it("[API-LISTING-001] should create a new property listing via API", () => {
+  it("[API-LISTING-001] should create and then delete a property listing via API", () => {
     cy.fixture("new-property-listing-data.json").then((data) => {
+      // data holds the listing payloads from new-property-listing-data.json
       cy.createListing({
         listingData: data.newRealEstateAPI,
         imagePath: "images/beautifulHouse.png",
-      }).then((id) => {
-        listingId = id;
+      }).then((listingId) => {
+        // listingId holds the ID the API returned for the new listing
         cy.log(`New Listing Created! ID: ${listingId}`);
+        cy.deleteListing(listingId).then((response) => {
+          // response holds the DELETE result for that same listing
+          expect(response.status).to.eq(200);
+        });
       });
-    });
-  });
-
-  it("[API-LISTING-002] should delete the created property listing by ID via API", () => {
-    cy.deleteListing(listingId).then((response) => {
-      cy.log(`Deleted Listing ID: ${listingId}`);
-      expect(response.status).to.eq(200);
     });
   });
 });
