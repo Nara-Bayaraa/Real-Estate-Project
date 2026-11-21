@@ -1,6 +1,8 @@
 describe("API: Create and Get Listing", () => {
   let listingData;
-  const path = "cypress/fixtures/created-listing-ID.json";
+  // listingData holds newRealEstateAPI from new-property-listing-data.json
+  let createdListingId;
+  // createdListingId holds the ID of the listing created in beforeEach
 
   beforeEach(function () {
     cy.fixture("new-property-listing-data.json").then((data) => {
@@ -9,36 +11,32 @@ describe("API: Create and Get Listing", () => {
       cy.createListing({
         listingData: listingData,
         imagePath: "images/beautifulHouse.png",
-      }).then((createdListingId) => {
+      }).then((id) => {
+        createdListingId = id;
         cy.log(`New Listing Created! ID: ${createdListingId}`);
-        cy.writeFile(path, { createdListingId });
       });
     });
   });
 
   it("[API-LISTING-003] should get the created listing and verify details", () => {
     const bearerToken = `Bearer ${localStorage.getItem("accessToken") || ""}`;
-    cy.fixture("created-listing-ID.json").then(({ createdListingId }) => {
-      cy.api({
-        method: "GET",
-        url: `/api/estate-objects/${createdListingId}`,
-        headers: {
-          Authorization: bearerToken,
-        },
-      }).then((getResponse) => {
-        expect(getResponse.status).to.eq(200);
-        expect(getResponse.body.estateObject.title).to.eq(listingData.title);
-      });
+    cy.api({
+      method: "GET",
+      url: `/api/estate-objects/${createdListingId}`,
+      headers: {
+        Authorization: bearerToken,
+      },
+    }).then((getResponse) => {
+      expect(getResponse.status).to.eq(200);
+      expect(getResponse.body.estateObject.title).to.eq(listingData.title);
     });
   });
 
   after(function () {
-    cy.fixture("created-listing-ID.json").then(({ createdListingId }) => {
-      if (createdListingId) {
-        cy.deleteListing(createdListingId).then((deleteResponse) => {
-          expect(deleteResponse.status).to.be.oneOf([200, 204]);
-        });
-      }
-    });
+    if (createdListingId) {
+      cy.deleteListing(createdListingId).then((deleteResponse) => {
+        expect(deleteResponse.status).to.be.oneOf([200, 204]);
+      });
+    }
   });
 });
