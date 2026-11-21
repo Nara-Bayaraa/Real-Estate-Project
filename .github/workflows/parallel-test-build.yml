@@ -46,12 +46,18 @@ jobs:
         run: npm run cy:parallel
 
       - name: Merge Mochawesome Reports
+        if: always()
+        # always(): run this step even when the test step failed
         run: npm run merge:reports
 
       - name: Generate HTML Report
+        if: always()
+        # always(): build the HTML report even when tests failed
         run: npm run generate:report
 
       - name: Upload HTML Report Artifact
+        if: always()
+        # always(): upload the report even when tests failed
         uses: actions/upload-artifact@v7
         with:
           name: mochawesome-html
